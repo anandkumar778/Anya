@@ -52,16 +52,17 @@ export default function ClientsScrollSection() {
               {column1.map((src, i) => (
                 <div
                   key={i}
-                  className="bg-white/90 backdrop-blur rounded-xl shadow-xl p-4 sm:p-6 flex items-center justify-center"
-                >
-                  <Image
-                    src={src}
-                    alt=""
-                    width={120}
-                    height={70}
-                    className="object-contain"
-                  />
-                </div>
+                
+                  
+                 className="relative w-full h-[220px] md:h-[420px]">
+  <Image
+    src={src}
+    alt="Responsive Image"
+    fill
+    className="object-cover"
+  />
+</div>
+
               ))}
             </div>
           </div>

@@ -2,51 +2,80 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
+  const navRef = useRef<HTMLUListElement | null>(null);
+
+  // desktop outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenMenu(null);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  // helper → mobile dropdown toggle (only one open)
+  const toggleMobileDropdown = (name: string) => {
+    setMobileDropdown(prev => (prev === name ? null : name));
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
+      {/* TOP BAR */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 h-[64px] flex items-center justify-between">
 
-        {/* Logo */}
+        {/* LOGO */}
         <Link href="/" className="flex items-center">
-          <Image
-            src="/logo/ae-logo.png"
-            alt="AE Logo"
-            width={120}
-            height={40}
-            className="object-contain"
-            priority
-          />
+          <div className="h-[44px] flex items-center">
+            <Image
+              src="/logo/ae-logo.png"
+              alt="AE Logo"
+              width={160}
+              height={160}
+              className="h-full w-auto object-contain"
+              priority
+            />
+          </div>
         </Link>
 
-        {/* Mobile Menu Button */}
+        {/* MOBILE BUTTON */}
         <button
-          className="md:hidden text-3xl text-indigo-900 focus:outline-none"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          type="button"
+          className="md:hidden text-2xl text-indigo-900"
+          onClick={() => {
+            setMobileOpen(!mobileOpen);
+            setMobileDropdown(null); // reset dropdowns
+          }}
         >
           ☰
         </button>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-8 text-indigo-900 font-medium">
-
-          <li><Link href="/" className="hover:text-indigo-700">Home</Link></li>
+        {/* DESKTOP MENU */}
+        <ul
+          ref={navRef}
+          className="hidden md:flex items-center gap-7 text-indigo-900 font-medium text-sm"
+        >
+          <li><Link href="/">Home</Link></li>
 
           {/* Company */}
-          <li
-            className="relative"
-            onMouseEnter={() => setOpenMenu("company")}
-            onMouseLeave={() => setOpenMenu(null)}
-          >
-            <span className="cursor-pointer hover:text-indigo-700">
+          <li className="relative">
+            <button
+              type="button"
+              onClick={() =>
+                setOpenMenu(openMenu === "company" ? null : "company")
+              }
+              className="hover:text-indigo-700"
+            >
               Company
-            </span>
+            </button>
 
             {openMenu === "company" && (
               <Dropdown>
@@ -57,14 +86,16 @@ export default function Navbar() {
           </li>
 
           {/* Products */}
-          <li
-            className="relative"
-            onMouseEnter={() => setOpenMenu("products")}
-            onMouseLeave={() => setOpenMenu(null)}
-          >
-            <span className="cursor-pointer hover:text-indigo-700">
+          <li className="relative">
+            <button
+              type="button"
+              onClick={() =>
+                setOpenMenu(openMenu === "products" ? null : "products")
+              }
+              className="hover:text-indigo-700"
+            >
               Products
-            </span>
+            </button>
 
             {openMenu === "products" && (
               <Dropdown>
@@ -75,76 +106,131 @@ export default function Navbar() {
             )}
           </li>
 
-          <li><Link href="/testing-lab/overview" className="hover:text-indigo-700">Testing Lab</Link></li>
-          <li><Link href="/careers" className="hover:text-indigo-700">Careers</Link></li>
-          <li><Link href="/contact-us" className="hover:text-indigo-700">Contact Us</Link></li>
+          <li><Link href="/testing-lab/overview">Testing Lab</Link></li>
+          <li><Link href="/careers">Careers</Link></li>
+          <li><Link href="/contact-us">Contact Us</Link></li>
         </ul>
       </div>
 
+    
+
+
       {/* MOBILE MENU */}
-      {mobileOpen && (
-        <div className="md:hidden bg-white border-t shadow-lg px-6 py-6 space-y-4 text-indigo-900 font-medium">
+{mobileOpen && (
+  <div
+    className="md:hidden bg-white border-t shadow
+               px-4 py-4 text-sm
+               max-h-[calc(100vh-64px)] overflow-y-auto"
+  >
+    {/* Home */}
+    <Link
+      href="/"
+      className="block py-2 border-b"
+      onClick={() => setMobileOpen(false)}
+    >
+      Home
+    </Link>
 
-          <Link href="/" onClick={() => setMobileOpen(false)} className="block">
-            Home
-          </Link>
+    {/* Company */}
+    <button
+      type="button"
+      className="w-full flex justify-between items-center py-2 font-medium"
+      onClick={() => toggleMobileDropdown("company")}
+    >
+      Company <span>{mobileDropdown === "company" ? "−" : "+"}</span>
+    </button>
 
-          {/* Mobile Company Dropdown */}
-          <button
-            className="w-full text-left flex justify-between items-center"
-            onClick={() =>
-              setMobileDropdown(mobileDropdown === "company" ? null : "company")
-            }
-          >
-            Company <span>{mobileDropdown === "company" ? "−" : "+"}</span>
-          </button>
+    {mobileDropdown === "company" && (
+      <div className="ml-4 mt-2 space-y-2">
+        <Link
+          href="/about/company/about-us"
+          className="block py-1"
+          onClick={() => setMobileOpen(false)}
+        >
+          About Us
+        </Link>
+        <Link
+          href="/company/events"
+          className="block py-1"
+          onClick={() => setMobileOpen(false)}
+        >
+          Events
+        </Link>
+      </div>
+    )}
 
-          {mobileDropdown === "company" && (
-            <div className="ml-4 space-y-2 text-sm">
-              <Link href="/about/company/about-us" onClick={() => setMobileOpen(false)}>About Us</Link>
-              <Link href="/company/events" onClick={() => setMobileOpen(false)}>Events</Link>
-            </div>
-          )}
+    {/* Products */}
+    <button
+      type="button"
+      className="w-full flex justify-between items-center py-2 font-medium"
+      onClick={() => toggleMobileDropdown("products")}
+    >
+      Products <span>{mobileDropdown === "products" ? "−" : "+"}</span>
+    </button>
 
-          {/* Mobile Products Dropdown */}
-          <button
-            className="w-full text-left flex justify-between items-center"
-            onClick={() =>
-              setMobileDropdown(mobileDropdown === "products" ? null : "products")
-            }
-          >
-            Products <span>{mobileDropdown === "products" ? "−" : "+"}</span>
-          </button>
+    {mobileDropdown === "products" && (
+      <div className="ml-4 mt-2 space-y-2">
+        <Link
+          href="/products"
+          className="block py-1"
+          onClick={() => setMobileOpen(false)}
+        >
+          Night Vision Device
+        </Link>
+        <Link
+          href="/products/thermal"
+          className="block py-1"
+          onClick={() => setMobileOpen(false)}
+        >
+          Thermal Device
+        </Link>
+        <Link
+          href="/products/others"
+          className="block py-1"
+          onClick={() => setMobileOpen(false)}
+        >
+          Others
+        </Link>
+      </div>
+    )}
 
-          {mobileDropdown === "products" && (
-            <div className="ml-4 space-y-2 text-sm">
-              <Link href="/products" onClick={() => setMobileOpen(false)}>Night Vision Device</Link>
-              <Link href="/products/thermal" onClick={() => setMobileOpen(false)}>Thermal Device</Link>
-              <Link href="/products/others" onClick={() => setMobileOpen(false)}>Others</Link>
-            </div>
-          )}
+    {/* Testing Lab */}
+    <Link
+      href="/testing-lab/overview"
+      className="block py-2 border-t"
+      onClick={() => setMobileOpen(false)}
+    >
+      Testing Lab
+    </Link>
 
-          <Link href="/testing-lab/overview" onClick={() => setMobileOpen(false)} className="block">
-            Testing Lab
-          </Link>
+    {/* Careers */}
+    <Link
+      href="/careers"
+      className="block py-2"
+      onClick={() => setMobileOpen(false)}
+    >
+      Careers
+    </Link>
 
-          <Link href="/careers" onClick={() => setMobileOpen(false)} className="block">
-            Careers
-          </Link>
+    {/* Contact Us */}
+    <Link
+      href="/contact-us"
+      className="block py-2"
+      onClick={() => setMobileOpen(false)}
+    >
+      Contact Us
+    </Link>
+  </div>
+)}
 
-          <Link href="/contact-us" onClick={() => setMobileOpen(false)} className="block">
-            Contact Us
-          </Link>
-        </div>
-      )}
     </nav>
   );
 }
 
-/* Dropdown Components */
+/* DROPDOWN (DESKTOP) */
 function Dropdown({ children }: { children: React.ReactNode }) {
   return (
-    <div className="absolute top-9 left-0 w-64 bg-white shadow-lg border rounded-md z-50">
+    <div className="absolute top-full mt-2 left-0 w-60 bg-white shadow-lg border rounded-md">
       {children}
     </div>
   );
