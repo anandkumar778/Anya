@@ -8,7 +8,7 @@ const slides = [
     id: 1,
     image: "/hero/hero1.png",
     title: 'BE PREPARED FOR ANY CHALLENGE WITH OUR TRUSTED "DARVI" PRODUCTS',
-    desc: "We take expertise in serving the security, surveillance, and maintenance needs of our clients and aim for 100% customer satisfaction.",
+    desc: "We Aanya Enterprisee expertise in serving the security, surveillance, and maintenance needs of our clients and aim for 100% customer satisfaction.",
     btn: "Expand Your Horizon",
   },
   {

@@ -12,7 +12,7 @@ export default function ReliabilitySection() {
           </h2>
 
           <p className="text-gray-700 text-sm sm:text-base mb-4 leading-relaxed">
-            Established in 2001, TAK Technologies Pvt. Ltd. embarked on a mission
+            Established in 2001, Aanya Enterprise embarked on a mission
             to make a lasting impact on the Indian defense sector by delivering
             top-quality products and solutions coupled with efficient and
             responsive support services.
@@ -42,7 +42,7 @@ export default function ReliabilitySection() {
         <div className="relative w-full h-[260px] sm:h-[340px] md:h-[450px]">
           <Image
             src="/hero/bilding.png"
-            alt="TAK Technologies Building"
+            alt="Aanya Enterprise Technologies Building"
             fill
             className="object-cover rounded-md"
             priority

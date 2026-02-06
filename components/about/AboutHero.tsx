@@ -98,7 +98,7 @@ export default function AboutUsPage() {
         </h2>
 
         <p className="text-gray-700 leading-relaxed mb-6">
-          Welcome to TAK Technologies Pvt. Ltd., where innovation meets
+          Welcome to Aanya Enterprise, where innovation meets
           reliability in the realm of cutting-edge technology solutions.
           Since our inception in 2001, we've been dedicated to
           revolutionizing the landscape of Indian Defense through top-notch
@@ -113,7 +113,7 @@ export default function AboutUsPage() {
         </p>
 
         <p className="text-gray-700 leading-relaxed mb-6">
-          At TAK, we've consistently supported Local, State, and Central
+          At Aanya Enterprise, we've consistently supported Local, State, and Central
           Government agencies in maintaining intricate systems and
           achieving robust security measures. Our commitment extends to
           being registered suppliers to numerous defense and Government
@@ -121,21 +121,21 @@ export default function AboutUsPage() {
         </p>
 
         <p className="text-gray-700 leading-relaxed">
-          At TAK, quality is our top priority. We adhere to the highest
+          At Aanya Enterprise, quality is our top priority. We adhere to the highest
           standards of manufacturing excellence and quality control to
           ensure that every product that bears our name meets the highest
           standards of performance and reliability.
         </p>
 
          <p className="text-gray-700 leading-relaxed">
-          At TAK, quality is our top priority. We adhere to the highest
+          At Aanya Enterprise, quality is our top priority. We adhere to the highest
           standards of manufacturing excellence and quality control to
           ensure that every product that bears our name meets the highest
           standards of performance and reliability.
         </p>
 
          <p className="text-gray-700 leading-relaxed">
-          At TAK, quality is our top priority. We adhere to the highest
+          At Aanya Enterprise, quality is our top priority. We adhere to the highest
           standards of manufacturing excellence and quality control to
           ensure that every product that bears our name meets the highest
           standards of performance and reliability.

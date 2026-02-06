@@ -14,7 +14,7 @@ export default function DarviSection() {
           </h2>
 
           <p className="text-gray-800 text-sm sm:text-base leading-relaxed mb-4">
-            TAK Technologies proudly unveiled the “DarVi” brand in the year
+            Aanya Enterprise Technologies proudly unveiled the “DarVi” brand in the year
             2012, marking a significant milestone in their commitment to
             excellence in the field of Opto-electronics. The company has
             established its own state-of-the-art manufacturing facility
@@ -27,7 +27,7 @@ export default function DarviSection() {
             Clean Room environments, meticulously controlled laminar airflow
             stations, electronic testing capabilities, dedicated dark room
             testing facilities, and specialized NABL accredited environmental
-            testing facility. These resources reflect TAK Technologies’
+            testing facility. These resources reflect Aanya Enterprise Technologies’
             dedication to delivering superior products and pioneering
             advancements in the industry.
           </p>

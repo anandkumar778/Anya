@@ -78,7 +78,7 @@ export default function TimelineSection() {
         </h2>
 
         <p className="text-center text-gray-700 text-sm sm:text-base max-w-5xl mx-auto mb-8 sm:mb-12">
-          TAK Technologies Pvt. Ltd. Established with a vision to revolutionize
+          Aanya Enterprise Established with a vision to revolutionize
           the opto-electronic industry, bringing together experts with a shared
           passion for innovation and excellence.
         </p>

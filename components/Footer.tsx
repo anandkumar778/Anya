@@ -109,7 +109,7 @@ export default function Footer() {
 
             <div>
               <h4 className="text-orange-400 font-semibold mb-4">
-                TAK Technologies
+                Aanya Enterprise
               </h4>
               <ul className="space-y-2">
                 <li>About Us</li>
@@ -171,21 +171,21 @@ export default function Footer() {
 
           <ContactBlock
             title="For Sales"
-            email="sales@tak-technologies.com"
+            email="sales@aanya-technologies.com"
             phone="+91 8510007185"
             ext="Ext. 122/135"
           />
 
           <ContactBlock
             title="For Support"
-            email="support@tak-technologies.com"
+            email="support@aanya-technologies.com"
             phone="+91 9540543338"
             ext="Ext. 234/233"
           />
 
           <ContactBlock
             title="For Testing Lab"
-            email="lab@tak-technologies.com"
+            email="lab@aanya-technologies.com"
             phone="+91 9540631133"
             ext="Ext. 820/821"
           />
@@ -205,7 +205,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between text-sm text-white">
         
         <p className="text-center md:text-left">
-          © Copyright 2026 TAK Technologies Private Limited - All Rights Reserved |{" "}
+          © Copyright 2026 Aanya Enterprise - All Rights Reserved |{" "}
           <span className="underline cursor-pointer">Sitemap</span> |{" "}
           <span className="underline cursor-pointer">Contact Us</span>
         </p>
