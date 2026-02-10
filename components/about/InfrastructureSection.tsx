@@ -26,7 +26,7 @@ const InfrastructureSection: FC = () => {
   return (
     <section className="w-full bg-white py-12 sm:py-16">
       {/* Heading */}
-      <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-600 mb-8 sm:mb-12 tracking-wide">
+      <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--primary-blue)] mb-8 sm:mb-12 tracking-wide">
         INFRASTRUCTURE
       </h2>
 

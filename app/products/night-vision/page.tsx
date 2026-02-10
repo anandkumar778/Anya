@@ -51,12 +51,12 @@ export default function NightVisionBinocularPage() {
 
         {/* RIGHT : Content */}
         <div>
-          <h1 className="text-4xl font-extrabold text-indigo-600 mb-4">
+          <h1 className="text-4xl font-extrabold text-[var(--primary-blue)] mb-4">
             NIGHT VISION BINOCULAR
           </h1>
 
           {/* Orange underline */}
-          <div className="w-20 h-1 bg-indigo-500 mb-6" />
+          <div className="w-20 h-1 bg-[var(--primary-blue)] mb-6" />
 
           <p className="text-gray-700 text-lg leading-relaxed">
             Night Vision Binocular with <strong>4X/5X lens</strong> is ruggedly
@@ -73,9 +73,7 @@ export default function NightVisionBinocularPage() {
           </p>
         </div>
       </div>
-    </section>
-
-     
+    </section> 
     </>
   );
 }

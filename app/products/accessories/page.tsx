@@ -21,7 +21,7 @@ export default function AccessoriesPage() {
     <section className="w-full bg-white py-14">
       {/* Heading */}
       <div className="max-w-7xl mx-auto px-4 mb-10">
-        <h2 className="text-4xl font-extrabold text-green-600">
+        <h2 className="text-4xl font-extrabold text-[var(--primary-blue)]">
           ACCESSORIES
         </h2>
       </div>

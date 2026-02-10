@@ -33,13 +33,13 @@ export default function ProductFloatingCarousel() {
         {images.map((item) => (
           <SwiperSlide key={item.id}>
             {/* Background */}
-            <Image
+            {/* <Image
               src="/products/night-vision/bg-green.png"
               alt="Background"
               fill
               priority
               className="object-cover"
-            />
+            /> */}
 
             {/* Center Single Image */}
            
@@ -60,18 +60,18 @@ export default function ProductFloatingCarousel() {
       {/* Bottom Breadcrumb */}
       
 
-<div className="absolute bottom-0 left-0 right-0 bg-gray-200 py-4 px-8 flex justify-between text-sm z-20">
+<div>
   
   {/* Back Button */}
-  <Link
+  {/* <Link
     href="/products"
     className="cursor-pointer hover:underline font-medium"
   >
     ‹ Back
-  </Link>
+  </Link> */}
 
   {/* Breadcrumb */}
-  <span>
+  {/* <span>
     <Link href="/" className="hover:underline">
       Home
     </Link>{" "}
@@ -84,7 +84,7 @@ export default function ProductFloatingCarousel() {
     <span className="text-indigo-500 font-medium">
       Night Vision Binocular
     </span>
-  </span>
+  </span> */}
 </div>
 
     </section>

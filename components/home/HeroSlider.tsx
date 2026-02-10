@@ -59,7 +59,7 @@ export default function HeroSlider() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-primaryBlue" />
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-4 sm:px-6">
@@ -79,7 +79,7 @@ export default function HeroSlider() {
             {slides[active].desc}
           </p>
 
-          <button className="bg-white text-black px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-md font-semibold hover:bg-orange-500 hover:text-white transition">
+          <button className="bg-white text-black px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-md font-semibold hover:bg-[var(--primary-blue)] hover:text-white transition">
             {slides[active].btn}
           </button>
         </div>
@@ -93,7 +93,7 @@ export default function HeroSlider() {
             onClick={() => setActive(i)}
             className={`h-1 rounded-full transition-all ${
               active === i
-                ? "w-8 sm:w-10 bg-orange-500"
+                ? "w-8 sm:w-10 bg-primaryBlue"
                 : "w-6 sm:w-8 bg-white/60"
             }`}
           />

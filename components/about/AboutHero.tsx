@@ -44,7 +44,7 @@ export default function AboutUsPage() {
           />
 
           <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-0  from-black/70 via-black/30 to-transparent" />
 
           <h1 className="absolute bottom-24 left-6 md:left-10 text-4xl md:text-7xl font-extrabold tracking-widest text-white/80 bg-white/10 backdrop-blur-md px-4 py-2 rounded">
             COMPANY
@@ -55,7 +55,7 @@ export default function AboutUsPage() {
               <span
                 key={i}
                 className={`w-8 h-[3px] ${
-                  i === active ? "bg-orange-500" : "bg-white/50"
+                  i === active ? "bg-[var(--primary-blue)]" : "bg-white/50"
                 }`}
               />
             ))}
@@ -64,7 +64,7 @@ export default function AboutUsPage() {
           <div className="absolute bottom-0 w-full bg-gray-100">
             <div className="flex justify-between items-center px-4 md:px-10 py-3 text-sm">
               <Link href="/about">← Back</Link>
-              <span className="text-orange-500 font-semibold">
+              <span className="text-[var(--primary-blue)] font-semibold">
                 Home › About Us
               </span>
             </div>
@@ -89,11 +89,11 @@ export default function AboutUsPage() {
     <div className="relative">
 
       {/* ORANGE LINE (NOW DOES NOT BLOCK SCROLL) */}
-      <span className="absolute right-0 top-0 bg-orange-500 pr-1 h-[520px] pointer-events-none" />
+      <span className="absolute right-0 top-0 bg-[var(--primary-blue)] pr-1 h-[520px] pointer-events-none" />
 
       {/* SCROLLABLE TEXT */}
       <div className="pr-3 h-[520px] overflow-y-auto">
-        <h2 className="text-green-600 text-3xl font-extrabold mb-6">
+        <h2 className="text-[var(--primary-blue)] text-3xl font-extrabold mb-6">
           ABOUT US
         </h2>
 
@@ -146,8 +146,6 @@ export default function AboutUsPage() {
 
   </div>
 </section>
-
-
 
     </>
   );

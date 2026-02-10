@@ -12,7 +12,6 @@ const page = () => {
     <>
 
       <ProductHeroFloatingCarousel/>
-     
       <NightVisionSection/>
       <ThermalDevicesPage/>
       <DayOpticsPage/>

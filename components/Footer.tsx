@@ -1,245 +1,225 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Footer() {
-  return (
-    <footer className="bg-[#0b4a2b] text-white">
-      
-      {/* TOP SECTION */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex flex-col lg:flex-row gap-12">
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    reason: "",
+    message: "",
+  });
 
-          {/* LEFT FORM */}
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.company.trim()) newErrors.company = "Company name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+    if (!formData.reason) newErrors.reason = "Please select a reason";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+    alert("Form submitted successfully ✅");
+    setFormData({
+      name: "",
+      company: "",
+      email: "",
+      reason: "",
+      message: "",
+    });
+  };
+
+  const fieldClass =
+    "w-full rounded-md px-3 py-2 text-black bg-white border border-gray-300 " +
+    "hover:border-black focus:border-black focus:outline-none transition";
+
+  return (
+    <footer className="bg-[var(--primary-blue)] text-white text-sm">
+
+      {/* TOP SECTION */}
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="flex flex-col lg:flex-row gap-10">
+
+          {/* FORM */}
           <div className="flex-1">
-            <h2 className="text-3xl font-semibold mb-8">
-              Protect What Matters Most with Our<br />Top-of-the-Line Equipment
+            <h2 className="text-2xl font-semibold mb-6">
+              Protect What Matters Most with Our<br />
+              Top-of-the-Line Equipment
             </h2>
 
-            <h3 className="text-orange-400 text-xl font-semibold mb-4">
-              Get In Touch
-            </h3>
+            <h3 className="text-lg font-semibold mb-3">Get In Touch</h3>
 
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          {/* Name */}
-          <div>
-            <label className="block text-sm font-medium text-white mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              placeholder="Enter your name"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-            />
-          </div>
-
-          {/* Company */}
-          <div>
-            <label className="block text-sm font-medium text-white mb-1">
-              Company Name
-            </label>
-            <input
-              type="text"
-              placeholder="Enter company name"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label className="block text-sm font-medium text-white mb-1">
-              E-mail
-            </label>
-            <input
-              type="email"
-              placeholder="Enter email address"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-            />
-          </div>
-
-          {/* Reason */}
-          <div>
-            <label className="block text-sm font-medium text-white mb-1">
-              Select Reason
-            </label>
-            <select
-              className="w-full border border-white rounded-md px-4 py-3 bg-[#0b4a2b] focus:outline-none focus:ring-2 focus:ring-green-600"
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
             >
-              <option value="">Select reason</option>
-              <option>Business Inquiry</option>
-              <option>Government Project</option>
-              <option>Support</option>
-              <option>Other</option>
-            </select>
-          </div>
+              {/* Name */}
+              <div>
+                <label>Name</label>
+                <input name="name" value={formData.name} onChange={handleChange} className={fieldClass} />
+                {errors.name && <p className="text-red-300 text-xs">{errors.name}</p>}
+              </div>
 
-          {/* Message */}
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-white mb-1">
-              Message
-            </label>
-            <textarea
-              rows={5}
-              maxLength={250}
-              placeholder="Write your message (Max 250 words)"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-            />
-            <p className="text-xs text-gray-500 mt-1">
-              Max 250 words
-            </p>
-          </div>
+              {/* Company */}
+              <div>
+                <label>Company Name</label>
+                <input name="company" value={formData.company} onChange={handleChange} className={fieldClass} />
+                {errors.company && <p className="text-red-300 text-xs">{errors.company}</p>}
+              </div>
 
-          {/* Submit */}
-          <div className="md:col-span-2">
-            <button
-              type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-10 py-3 rounded-md shadow-lg transition"
-            >
-              SUBMIT
-            </button>
-          </div>
+              {/* Email */}
+              <div>
+                <label>Email</label>
+                <input name="email" value={formData.email} onChange={handleChange} className={fieldClass} />
+                {errors.email && <p className="text-red-300 text-xs">{errors.email}</p>}
+              </div>
 
-        </form>
-    
+              {/* Reason */}
+              <div>
+                <label>Select Reason</label>
+                <select name="reason" value={formData.reason} onChange={handleChange} className={fieldClass}>
+                  <option value="">Select reason</option>
+                  <option>Business Inquiry</option>
+                  <option>Government Project</option>
+                  <option>Support</option>
+                  <option>Other</option>
+                </select>
+                {errors.reason && <p className="text-red-300 text-xs">{errors.reason}</p>}
+              </div>
+
+              {/* Message */}
+              <div className="md:col-span-2">
+                <label>Message</label>
+                <textarea
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={fieldClass}
+                />
+                {errors.message && <p className="text-red-300 text-xs">{errors.message}</p>}
+              </div>
+
+              {/* Submit */}
+              {/* <div className="md:col-span-2">
+                <button
+                  type="submit"
+                  className="bg-white text-[var(--primary-blue)] font-semibold px-8 py-2 rounded-md hover:bg-black hover:text-white transition"
+                >
+                  SUBMIT
+                </button>
+              </div> */}
+                  <h1 className="text-white font-bold text-center">
+ 
+</h1>
+
+<button
+  className="
+    relative inline-flex items-center justify-center
+    px-5 py-2.5 rounded-md
+    border border-[var(--primary-blue)]
+    bg-[var(--primary-blue)]
+    text-white font-semibold
+    transition-all duration-300 ease-in-out
+
+    hover:bg-white
+    hover:text-[var(--primary-blue)]
+    hover:shadow-lg
+
+    active:scale-95
+    focus:outline-none
+    focus:ring-2 focus:ring-[var(--primary-blue)] focus:ring-offset-2
+  "
+>
+  Submit
+</button>
+
+
+
+            </form>
           </div>
 
           {/* RIGHT LINKS */}
-          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-6">
+            <FooterColumn title="Aanya Enterprise" items={["About Us", "Career", "Get In Touch"]} />
+            <FooterColumn title="Products" items={["Night Vision Device", "Thermal Devices", "Day Optics Devices"]} />
+            <FooterColumn title="Accessories" items={["Accessories", "Others"]} />
 
-            <div>
-              <h4 className="text-orange-400 font-semibold mb-4">
-                Aanya Enterprise
-              </h4>
-              <ul className="space-y-2">
-                <li>About Us</li>
-                <li>Career</li>
-                <li>Get In Touch</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-orange-400 font-semibold mb-4">
-                Products
-              </h4>
-              <ul className="space-y-2">
-                <li>Night Vision Device</li>
-                <li>Thermal Devices</li>
-                <li>Day Optics Devices</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-orange-400 font-semibold mb-4">
-                Accessories
-              </h4>
-              <ul className="space-y-2">
-                <li>Accessories</li>
-                <li>Others</li>
-              </ul>
-            </div>
-
-            {/* REGISTERED */}
             <div className="col-span-2 md:col-span-3">
-              <h4 className="text-gray-200 font-semibold mb-4">
-                Registered with
-              </h4>
-
-              <div className="flex flex-wrap gap-4">
+              <h4 className="text-gray-200 font-semibold mb-3">Registered with</h4>
+              <div className="flex gap-3">
                 {["make", "gem", "msme", "india"].map((img) => (
-                  <div
-                    key={img}
-                    className="bg-white p-3 rounded-md"
-                  >
-                    <Image
-                      src={`/logos/${img}.png`}
-                      alt={img}
-                      width={90}
-                      height={40}
-                    />
+                  <div key={img} className="bg-white p-2 rounded">
+                    <Image src={`/logos/${img}.png`} alt={img} width={70} height={32} />
                   </div>
                 ))}
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
       {/* CONTACT BAR */}
-      <div className="bg-[#06381f] py-10">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-sm">
-
-          <ContactBlock
-            title="For Sales"
-            email="sales@aanya-technologies.com"
-            phone="+91 8510007185"
-            ext="Ext. 122/135"
-          />
-
-          <ContactBlock
-            title="For Support"
-            email="support@aanya-technologies.com"
-            phone="+91 9540543338"
-            ext="Ext. 234/233"
-          />
-
-          <ContactBlock
-            title="For Testing Lab"
-            email="lab@aanya-technologies.com"
-            phone="+91 9540631133"
-            ext="Ext. 820/821"
-          />
+      <div className="bg-[var(--primary-blue)] py-6">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+          <ContactBlock title="For Sales" email="sales@aanya-technologies.com" phone="+91 8510007185" ext="Ext. 122/135" />
+          <ContactBlock title="For Support" email="support@aanya-technologies.com" phone="+91 9540543338" ext="Ext. 234/233" />
+          <ContactBlock title="For Testing Lab" email="lab@aanya-technologies.com" phone="+91 9540631133" ext="Ext. 820/821" />
         </div>
       </div>
 
       {/* BOTTOM */}
-      <div className="bg-[#042a17] text-center py-4 text-sm">
-        Toll-free No. : 1800-123-9887
-      </div>
-      <div className="bg-[#0b4a2b]">
-      
-      {/* dotted divider */}
       <div className="border-t border-dotted border-white/70" />
-
-      {/* content */}
-      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between text-sm text-white">
-        
-        <p className="text-center md:text-left">
-          © Copyright 2026 Aanya Enterprise - All Rights Reserved |{" "}
-          <span className="underline cursor-pointer">Sitemap</span> |{" "}
-          <span className="underline cursor-pointer">Contact Us</span>
-        </p>
-
-        <p className="mt-2 md:mt-0">
-          Designed &amp; Developed By:{" "}
-          <span className="font-semibold">CSIPL</span>
-        </p>
+      <div className="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row justify-between text-xs">
+        <p>© 2026 Aanya Enterprise. All Rights Reserved</p>
+        <p>Designed & Developed by <strong>CSIPL</strong></p>
       </div>
-    </div>
     </footer>
   );
 }
 
-/* Small component */
-function ContactBlock({
-  title,
-  email,
-  phone,
-  ext,
-}: {
-  title: string;
-  email: string;
-  phone: string;
-  ext: string;
-}) {
+/* Reusable */
+function FooterColumn({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
       <h4 className="font-semibold mb-2">{title}</h4>
+      <ul className="space-y-1">
+        {items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function ContactBlock({ title, email, phone, ext }: any) {
+  return (
+    <div>
+      <h4 className="font-semibold">{title}</h4>
       <p>{email}</p>
       <p>{phone}</p>
       <p>{ext}</p>
     </div>
-    
-    
   );
 }

@@ -19,7 +19,7 @@ export default function MapSection() {
       <div className="max-w-7xl mx-auto px-4 text-center">
         
         {/* Heading */}
-        <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-green-600 tracking-widest mb-6 sm:mb-8 md:mb-10">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-[var(--primary-blue)] tracking-widest mb-6 sm:mb-8 md:mb-10">
           SERVING THE LANDMARK LOCATIONS
         </h2>
 
@@ -41,7 +41,7 @@ export default function MapSection() {
               className="
                 absolute
                 -translate-x-1/2 -translate-y-1/2
-                bg-orange-500 text-white
+                bg-primaryBlue text-white
                 text-[9px] sm:text-[10px] md:text-sm
                 px-2 sm:px-2.5 md:px-3
                 py-0.5

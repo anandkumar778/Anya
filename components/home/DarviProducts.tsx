@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+/* ================= DATA ================= */
+
 const products = [
   {
     id: 1,
@@ -29,16 +31,18 @@ const tabs = [
   "Others",
 ];
 
+/* ================= COMPONENT ================= */
+
 export default function DarviProducts() {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [imgIndex, setImgIndex] = useState(0);
 
   /* 🔁 Auto product change */
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIndex((p) => (p + 1) % products.length);
-    }, 4000);
+      setActiveIndex((prev) => (prev + 1) % products.length);
+    }, 4500);
 
     return () => clearInterval(timer);
   }, []);
@@ -50,45 +54,45 @@ export default function DarviProducts() {
       setImgIndex((i) =>
         i === products[activeIndex].images.length - 1 ? 0 : i + 1
       );
-    }, 2000);
+    }, 2200);
 
     return () => clearInterval(imgTimer);
   }, [activeIndex]);
 
   return (
-    <section className="bg-[#f1f1f1] py-12 sm:py-16 md:py-20 overflow-x-hidden">
+    <section className="bg-[#f4f4f4] py-14 sm:py-18 md:py-20 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4">
 
-        {/* HEADER */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 sm:mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-600">
+        {/* ================= HEADER ================= */}
+        <div className="mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--primary-blue)]">
             DARVI PRODUCTS
           </h2>
-          <button className="bg-gray-800 text-white px-5 py-2 rounded-md hover:bg-black transition text-sm sm:text-base">
-            View All
-          </button>
         </div>
 
-        {/* TABS */}
-        <div className="flex flex-wrap gap-2 sm:gap-3 mb-10 sm:mb-16">
+        {/* ================= TABS ================= */}
+        <div className="flex flex-wrap gap-3 mb-12">
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-3 sm:px-4 py-2 rounded-md border text-xs sm:text-sm md:text-base transition
+              className={`
+                px-4 py-2 rounded-md text-sm sm:text-base font-medium
+                border transition-all duration-300
                 ${
                   activeTab === tab
-                    ? "bg-orange-500 text-white border-orange-500"
-                    : "bg-white border-gray-400 hover:bg-gray-100"
-                }`}
+                    ? "bg-[var(--primary-blue)] text-white border-[var(--primary-blue)]"
+                    : "bg-white border-gray-400 text-gray-800 hover:bg-[var(--primary-blue)] hover:text-white hover:border-[var(--primary-blue)]"
+                }
+              `}
             >
               {tab}
             </button>
           ))}
         </div>
 
-        {/* PRODUCTS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10 place-items-center">
+        {/* ================= PRODUCTS ================= */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 place-items-center">
 
           {products.map((item, i) => {
             const isActive = i === activeIndex;
@@ -96,39 +100,57 @@ export default function DarviProducts() {
             return (
               <div
                 key={item.id}
-                className={`transition-all duration-700 rounded-2xl flex flex-col items-center justify-center
-                  w-full max-w-[360px] sm:max-w-[400px]
+                className={`
+                  relative rounded-2xl flex flex-col items-center justify-center
+                  w-full max-w-[380px]
+                  transition-all duration-700 ease-in-out
                   ${
                     isActive
-                      ? "bg-[#fdeee6] h-[300px] sm:h-[320px] md:h-[340px] shadow-2xl scale-105"
-                      : "bg-gray-300 h-[220px] sm:h-[240px] md:h-[260px] opacity-60"
-                  }`}
+                      ? "bg-white h-[340px] shadow-2xl scale-105"
+                      : "bg-gray-200 h-[260px] opacity-60"
+                  }
+                `}
               >
                 {/* IMAGE */}
-                <div className="relative w-[200px] sm:w-[230px] md:w-[260px] h-[130px] sm:h-[150px] md:h-[160px]">
+                <div
+                  className={`
+                    relative w-[220px] sm:w-[250px] h-[150px] sm:h-[170px]
+                    transition-all duration-700
+                    ${isActive ? "scale-100 opacity-100" : "scale-90 opacity-70"}
+                  `}
+                >
                   <Image
-                    src={isActive ? item.images[imgIndex] : item.images[0]}
+                    key={imgIndex}
+                    src={item.images[imgIndex]}
                     alt={item.title}
                     fill
-                    className="object-contain"
+                    className={`
+                      object-contain
+                      transition-all duration-700
+                      ${isActive ? "animate-fadeZoom" : ""}
+                    `}
                   />
                 </div>
 
-                <h3 className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl font-bold text-gray-900 text-center px-3">
+                {/* TITLE */}
+                <h3 className="mt-6 text-base sm:text-lg md:text-xl font-bold text-gray-900 text-center px-4">
                   {item.title}
                 </h3>
 
                 {/* DOTS */}
                 {isActive && (
-                  <div className="flex gap-2 mt-3 sm:mt-4">
+                  <div className="flex gap-2 mt-4">
                     {item.images.map((_, idx) => (
                       <span
                         key={idx}
-                        className={`w-2.5 h-2.5 rounded-full ${
-                          idx === imgIndex
-                            ? "bg-orange-500"
-                            : "bg-gray-400"
-                        }`}
+                        className={`
+                          w-2.5 h-2.5 rounded-full transition
+                          ${
+                            idx === imgIndex
+                              ? "bg-[var(--primary-blue)]"
+                              : "bg-gray-400"
+                          }
+                        `}
                       />
                     ))}
                   </div>
@@ -139,6 +161,23 @@ export default function DarviProducts() {
 
         </div>
       </div>
+
+      {/* ================= ANIMATION ================= */}
+      <style jsx>{`
+        @keyframes fadeZoom {
+          0% {
+            opacity: 0;
+            transform: scale(0.92);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-fadeZoom {
+          animation: fadeZoom 0.7s ease-in-out;
+        }
+      `}</style>
     </section>
   );
 }

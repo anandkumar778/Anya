@@ -48,7 +48,7 @@ export default function NightVisionSection() {
     <section className="w-full bg-white py-12 sm:py-16">
       {/* About Text */}
       <div className="max-w-6xl mx-auto px-4 text-center mb-10 sm:mb-14">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-600 mb-4 sm:mb-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--primary-blue)] mb-4 sm:mb-6">
           ABOUT DARVI PRODUCTS
         </h2>
 
@@ -60,7 +60,7 @@ export default function NightVisionSection() {
       </div>
 
       {/* Section Title */}
-      <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-green-600 mb-8 sm:mb-10 px-4 max-w-7xl mx-auto">
+      <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--primary-blue)] mb-8 sm:mb-10 px-4 max-w-7xl mx-auto">
         NIGHT VISION DEVICE
       </h3>
 

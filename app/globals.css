@@ -50,3 +50,7 @@ body {
 .animate-scroll-down {
   animation: scrollDown 12s linear infinite;
 }
+
+:root {
+  --primary-blue: #1F2E8C;
+}

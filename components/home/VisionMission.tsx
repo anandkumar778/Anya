@@ -12,10 +12,10 @@ export default function VisionMission() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-12 md:mb-16">
 
           {/* VISION */}
-          <div className="bg-[#fdeee6] rounded-xl p-5 sm:p-8 md:p-10 flex gap-4 sm:gap-6">
+          <div className=" rounded-xl p-5 sm:p-8 md:p-10 flex gap-4 sm:gap-6">
             <Eye className="text-black shrink-0 w-8 h-8 sm:w-10 sm:h-10 mt-1" />
             <div>
-              <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-orange-500 mb-3">
+              <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-[var(--primary-blue)] mb-3">
                 VISION
               </h3>
               <p className="text-gray-800 text-sm sm:text-base leading-relaxed">
@@ -28,10 +28,10 @@ export default function VisionMission() {
           </div>
 
           {/* MISSION */}
-          <div className="bg-[#efefef] rounded-xl p-5 sm:p-8 md:p-10 flex gap-4 sm:gap-6">
+          <div className=" rounded-xl p-5 sm:p-8 md:p-10 flex gap-4 sm:gap-6">
             <Target className="text-black shrink-0 w-8 h-8 sm:w-10 sm:h-10 mt-1" />
             <div>
-              <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-orange-500 mb-3">
+              <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-[var(--primary-blue)] mb-3">
                 MISSION
               </h3>
               <p className="text-gray-800 text-sm sm:text-base leading-relaxed">
@@ -107,8 +107,8 @@ function Stat({
 
   return (
     <div className="flex flex-col items-center gap-2 sm:gap-3">
-      <div className="text-green-700 w-8 h-8 sm:w-9 sm:h-9">{icon}</div>
-      <h4 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-orange-500">
+      <div className="text-[var(--primary-blue)] w-8 h-8 sm:w-9 sm:h-9">{icon}</div>
+      <h4 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--primary-blue)]">
         {count}+
       </h4>
       <p className="text-xs sm:text-sm md:text-base text-gray-800">

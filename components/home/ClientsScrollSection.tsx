@@ -31,7 +31,7 @@ export default function ClientsScrollSection() {
 
         {/* LEFT CONTENT */}
         <div className="backdrop-blur-md bg-white/5 p-5 sm:p-6 rounded-2xl border border-white/10">
-          <h2 className="text-green-400 text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 sm:mb-6 uppercase">
+          <h2 className="text-[var(--primary-blue)] text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 sm:mb-6 uppercase">
             Valued Clients & <br /> Credentials
           </h2>
 
