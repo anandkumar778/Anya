@@ -75,8 +75,7 @@ export default function DualSensorPtzCameraPage() {
               </span>
 
               <span className="block">
-                Featuring a quick and straightforward installation mechanism, the Picatinny Rail Mount significantly improves weapon modularity and operational flexibility. 
-                Its rugged construction and precision fit make it ideal for military, law enforcement, and tactical applications, where durability, stability, and performance are critical.
+                DarVi’s dual-sensor PTZ cameras seamlessly integrate with existing CCTV and IP surveillance networks, significantly enhancing situational awareness. By effectively transforming night into day, the system empowers security operators to detect and respond to threats that remain invisible to the naked eye, making it an ideal solution for border security, perimeter protection, critical infrastructure, industrial facilities, and smart city surveillance.
               </span>
 
             </p>
@@ -102,29 +101,29 @@ export default function DualSensorPtzCameraPage() {
       <div className="grid grid-cols-1 md:grid-cols-2">
 
         {/* Row 1 */}
-        <div className="p-4 sm:p-5 border-b md:border-r">
-          <span className="font-medium">Extremely secure platform for holographic sights, reflex sights and lasers attachment</span>
+        <div className="p-4 sm:p-5 border-b md:border-r text-black">
+          <span className="font-medium">Pixel pitch: 17µm</span>
         </div>
-        <div className="p-4 sm:p-5 border-b">
-          <span className="font-medium">Manually adjustable retention mechanism to always retain sighting zero</span>
+        <div className="p-4 sm:p-5 border-b text-black">
+          <span className="font-medium">NETD ≤ 50mK.</span>
         </div>
 
         {/* Row 2 */}
-        <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50">
-          <span className="font-medium">Quick and easy installation. No gunsmith required</span>
+        <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50 text-black">
+          <span className="font-medium">Optical Zoom</span>
         </div>
-        <div className="p-4 sm:p-5 border-b bg-gray-50">
-          <span className="font-medium">Material of construction: Aluminum alloy 6061</span> 
+        <div className="p-4 sm:p-5 border-b bg-gray-50 text-black">
+          <span className="font-medium">Display resolution: 1024×768.</span> 
         </div>
           {/* Row 3 */}
-        <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50">
-          <span className="font-medium">Durable, hardwearing and light weight construction</span>
+        <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50 text-black">
+          <span className="font-medium">Communication: RS485.</span>
         </div>
         <div className="p-4 sm:p-5 border-b bg-gray-50">
-          <span className="font-medium">Matt black hard coat anodized</span> 
+          <span className="font-medium">Composite Video Type: PAL/NTSC.</span> 
         </div>
           <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50">
-          <span className="font-medium">MIL-STD-1913 based Picatinny rail</span>
+          <span className="font-medium">Power Interface:-30VDC via 110-240VAC power interface control box.</span>
         </div>
 
       </div>
