@@ -106,7 +106,7 @@ export default function Navbar() {
             )}
           </li>
 
-          <li><Link href="/testing-lab/overview">Testing Lab</Link></li>
+          <li><Link href="/testing-lab">Testing Lab</Link></li>
           <li><Link href="/careers">Careers</Link></li>
           <li><Link href="/contact-us">Contact Us</Link></li>
         </ul>
@@ -196,7 +196,7 @@ export default function Navbar() {
 
     {/* Testing Lab */}
     <Link
-      href="/testing-lab/overview"
+      href="/testing-lab"
       className="block py-2 border-t"
       onClick={() => setMobileOpen(false)}
     >
