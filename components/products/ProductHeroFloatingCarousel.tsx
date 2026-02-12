@@ -24,34 +24,36 @@ export default function ProductFloatingCarousel() {
   return (
     <>
       {/* ================= FULL SCREEN CAROUSEL ================= */}
-      <section className="relative w-full h-[100svh]">
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          loop
-          pagination={{ clickable: true }}
-          slidesPerView={1}
-          className="w-full h-full"
-        >
-          {slides.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className="relative w-full h-full">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  priority
-                  className="object-contain md:object-cover object-center"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
+      <section className="relative w-full min-h-screen overflow-hidden">
+  <Swiper
+    modules={[Autoplay, Pagination]}
+    autoplay={{ delay: 3500, disableOnInteraction: false }}
+    loop
+    pagination={{ clickable: true }}
+    slidesPerView={1}
+    className="w-full h-screen"
+  >
+    {slides.map((item) => (
+      <SwiperSlide key={item.id}>
+        <div className="relative w-full h-screen">
+          <Image
+            src={item.src}
+            alt={item.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</section>
+
 
       {/* ================= BOTTOM NAV / BREADCRUMB ================= */}
-      <div
-        className="
+      <div>
+        {/* className="
           w-full
           bg-white/95 backdrop-blur
           border-t
@@ -60,7 +62,7 @@ export default function ProductFloatingCarousel() {
           sm:flex-row sm:justify-between sm:items-center
           text-[11px] sm:text-sm
         "
-      >
+      > */}
         {/* <Link
           href="/about/company/about-us"
           className="font-medium text-indigo-900 hover:underline"

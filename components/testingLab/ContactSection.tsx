@@ -19,7 +19,7 @@ export default function ContactSection() {
       {/* Content */}
       <div className="relative max-w-5xl mx-auto px-6 text-center text-white">
 
-        <h2 className="text-4xl md:text-5xl font-extrabold text-green-500 mb-8">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--primary-blue)] mb-8">
           CONTACT US
         </h2>
 

@@ -101,7 +101,7 @@ export default function PicatinnyRailsPage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm text-sm sm:text-base">
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold">
 
         {[
           "Extremely secure platform for holographic sights, reflex sights and lasers attachment",

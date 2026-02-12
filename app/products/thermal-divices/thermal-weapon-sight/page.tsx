@@ -85,7 +85,7 @@ export default function ThermalWeaponSightPage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold">
 
         {/* Row 1 */}
         <div className="p-4 sm:p-5 border-b md:border-r">

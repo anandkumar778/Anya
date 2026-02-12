@@ -87,7 +87,7 @@ export default function ThermalBinocularPage() {
           </div>
 
           <div className="border border-gray-200 rounded-md overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold">
 
               <div className="p-5 border-b border-r">
                 Pixel Pitch: 12µm

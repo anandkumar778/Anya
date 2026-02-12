@@ -59,3 +59,40 @@ body {
 :root {
   --primary-blue: #1F2E8C;
 }
+
+/* ===== Mobile Devices (Android) ===== */
+@media (max-width: 640px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-section {
+    height: 60vh !important;
+  }
+
+  .hero-heading {
+    font-size: 20px !important;
+    line-height: 1.3;
+  }
+
+  .section-padding {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  .image-responsive {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+}

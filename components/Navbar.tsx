@@ -11,7 +11,6 @@ export default function Navbar() {
 
   const navRef = useRef<HTMLUListElement | null>(null);
 
-  // Desktop outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -22,7 +21,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Lock scroll when mobile open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "auto";
   }, [mobileOpen]);
@@ -51,7 +49,7 @@ export default function Navbar() {
 
         {/* Mobile Button */}
         <button
-          className="md:hidden text-3xl text-indigo-900"
+          className="md:hidden text-3xl text-indigo-900 font-bold"
           onClick={() => {
             setMobileOpen(true);
             setMobileDropdown(null);
@@ -63,12 +61,18 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul
           ref={navRef}
-          className="hidden md:flex items-center gap-8 text-indigo-900 font-medium text-sm"
+          className="hidden md:flex items-center gap-8 text-indigo-900 font-bold text-sm"
         >
-          <li><Link href="/">Home</Link></li>
+
+          <li>
+            <Link href="/" className="hover:text-indigo-600">
+              Home
+            </Link>
+          </li>
 
           <li className="relative">
             <button
+              className="font-bold"
               onClick={() =>
                 setOpenMenu(openMenu === "company" ? null : "company")
               }
@@ -86,6 +90,7 @@ export default function Navbar() {
 
           <li className="relative">
             <button
+              className="font-bold"
               onClick={() =>
                 setOpenMenu(openMenu === "products" ? null : "products")
               }
@@ -102,15 +107,28 @@ export default function Navbar() {
             )}
           </li>
 
-          <li><Link href="/testing-lab">Testing Lab</Link></li>
-          <li><Link href="/careers">Careers</Link></li>
-          <li><Link href="/contact-us">Contact Us</Link></li>
+          <li>
+            <Link href="/testing-lab" className="hover:text-indigo-600">
+              Testing Lab
+            </Link>
+          </li>
+
+          <li>
+            <Link href="/careers" className="hover:text-indigo-600">
+              Careers
+            </Link>
+          </li>
+
+          <li>
+            <Link href="/contact-us" className="hover:text-indigo-600">
+              Contact Us
+            </Link>
+          </li>
         </ul>
       </div>
 
-      {/* MOBILE POPUP DRAWER */}
+      {/* MOBILE DRAWER */}
       <>
-        {/* Overlay */}
         <div
           className={`fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300
           ${mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"}
@@ -118,28 +136,25 @@ export default function Navbar() {
           onClick={() => setMobileOpen(false)}
         />
 
-        {/* Drawer */}
         <div
           className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-2xl 
           transform transition-transform duration-300 ease-in-out
           ${mobileOpen ? "translate-x-0" : "translate-x-full"}
           md:hidden`}
         >
-          {/* Header */}
           <div className="flex justify-between items-center p-5 border-b">
-            <h2 className="text-lg font-semibold text-indigo-900">
+            <h2 className="text-lg font-bold text-indigo-900">
               Menu
             </h2>
             <button
-              className="text-2xl"
+              className="text-2xl font-bold"
               onClick={() => setMobileOpen(false)}
             >
               ✕
             </button>
           </div>
 
-          {/* Menu Items */}
-          <div className="p-5 space-y-4 text-base">
+          <div className="p-5 space-y-4 text-base font-bold">
 
             <Link
               href="/"
@@ -149,7 +164,6 @@ export default function Navbar() {
               Home
             </Link>
 
-            {/* Company */}
             <button
               className="w-full flex justify-between py-2 border-b"
               onClick={() => toggleMobileDropdown("company")}
@@ -159,13 +173,12 @@ export default function Navbar() {
             </button>
 
             {mobileDropdown === "company" && (
-              <div className="ml-4 space-y-2 text-gray-600">
+              <div className="ml-4 space-y-2 text-gray-600 font-medium">
                 <Link href="/about/company/about-us" className="block" onClick={() => setMobileOpen(false)}>About Us</Link>
                 <Link href="/company/events" className="block" onClick={() => setMobileOpen(false)}>Events</Link>
               </div>
             )}
 
-            {/* Products */}
             <button
               className="w-full flex justify-between py-2 border-b"
               onClick={() => toggleMobileDropdown("products")}
@@ -175,14 +188,13 @@ export default function Navbar() {
             </button>
 
             {mobileDropdown === "products" && (
-              <div className="ml-4 space-y-2 text-gray-600">
+              <div className="ml-4 space-y-2 text-gray-600 font-medium">
                 <Link href="/products" className="block" onClick={() => setMobileOpen(false)}>Night Vision Device</Link>
                 <Link href="/products/thermal" className="block" onClick={() => setMobileOpen(false)}>Thermal Device</Link>
                 <Link href="/products/others" className="block" onClick={() => setMobileOpen(false)}>Others</Link>
               </div>
             )}
 
-            {/* FIXED LINKS (NOW SEPARATE LINES) */}
             <Link
               href="/testing-lab"
               className="block py-2 border-b"
@@ -225,7 +237,7 @@ function Dropdown({ children }: { children: React.ReactNode }) {
 
 function DropdownLink({ href, text }: { href: string; text: string }) {
   return (
-    <Link href={href} className="block px-4 py-2 hover:bg-gray-100">
+    <Link href={href} className="block px-4 py-2 hover:bg-gray-100 font-medium">
       {text}
     </Link>
   );

@@ -88,7 +88,7 @@ export default function DarViDWSDayPage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-      <div className="grid grid-cols-1 md:grid-cols-2 text-sm sm:text-base">
+      <div className="grid grid-cols-1 md:grid-cols-2 sm:text-base text-xl font-semibold">
 
         {/* Row 1 */}
         <div className="p-4 sm:p-5 border-b md:border-r border-gray-200">
