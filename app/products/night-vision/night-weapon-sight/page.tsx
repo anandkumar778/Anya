@@ -75,49 +75,59 @@ export default function NightWeaponSightPage() {
       </section>
 
       {/* ================= TECHNICAL PARAMETERS ================= */}
-      <section className="w-full bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="w-full bg-white py-12 md:py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
-              Technical Parameters
-            </h2>
-            <div className="w-20 h-1 bg-primaryBlue mx-auto mt-4" />
-          </div>
+    {/* Heading */}
+    <div className="text-center mb-8 md:mb-12">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
+        Technical Parameters
+      </h2>
+      <div className="w-16 md:w-20 h-1 bg-primaryBlue mx-auto mt-3 md:mt-4" />
+    </div>
 
-          <div className="border border-gray-200 rounded-md overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+    {/* Table */}
+    <div className="border border-gray-200 rounded-md overflow-hidden shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-sm sm:text-base">
 
-              <div className="p-5 border-b border-r">
-                Gen 2+ II tube/ Gen 3 II Tube (Optional)
-              </div>
-              <div className="p-5 border-b">
-                Automatic Gain Control (AGC)
-              </div>
-
-              <div className="p-5 border-b border-r bg-gray-50">
-                Brightness Source Protection (BSP)
-              </div>
-              <div className="p-5 border-b bg-gray-50">
-                Integrated IR  LED/Laser
-              </div>
-
-              <div className="p-5 border-b border-r">
-               Magnification:-5x
-              </div>
-              <div className="p-5 border-b">
-                Low Battery Indicator
-              </div>
-
-              <div className="p-5 border-r bg-gray-50">
-                IP 66/67 Encapsulation
-              </div>
-              <div className="p-5 border-b border-r" />
-              Tactical Reticle
-            </div>
-          </div>
+        {/* Row 1 */}
+        <div className="p-4 sm:p-5 border-b md:border-r border-gray-200">
+          Gen 2+ II tube/ Gen 3 II Tube (Optional)
         </div>
-      </section>
+        <div className="p-4 sm:p-5 border-b border-gray-200">
+          Automatic Gain Control (AGC)
+        </div>
+
+        {/* Row 2 */}
+        <div className="p-4 sm:p-5 border-b md:border-r border-gray-200 bg-gray-50">
+          Brightness Source Protection (BSP)
+        </div>
+        <div className="p-4 sm:p-5 border-b border-gray-200 bg-gray-50">
+          Integrated IR LED/Laser
+        </div>
+
+        {/* Row 3 */}
+        <div className="p-4 sm:p-5 border-b md:border-r border-gray-200">
+          Magnification:- 5x
+        </div>
+        <div className="p-4 sm:p-5 border-b border-gray-200">
+          Low Battery Indicator
+        </div>
+
+        {/* Row 4 */}
+        <div className="p-4 sm:p-5 md:border-r border-gray-200 bg-gray-50">
+          IP 66/67 Encapsulation
+        </div>
+        <div className="p-4 sm:p-5 bg-gray-50">
+          Tactical Reticle
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
     </>
   );
 }

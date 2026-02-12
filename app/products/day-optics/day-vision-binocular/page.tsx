@@ -99,46 +99,57 @@ export default function DayVisionBinocularPage() {
       </section>
 
       {/* ================= TECHNICAL PARAMETERS ================= */}
-      <section className="w-full bg-white py-10 sm:py-14 md:py-20">
-        <div className="max-w-7xl mx-auto px-4">
+     <section className="w-full bg-white py-10 sm:py-14 md:py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-          {/* Heading */}
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
-              Technical Parameters
-            </h2>
-            <div className="w-14 sm:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 sm:mt-4" />
-          </div>
+    {/* Heading */}
+    <div className="text-center mb-8 sm:mb-12">
+      <h2 className="text-lg sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)] leading-snug">
+        Technical Parameters
+      </h2>
+      <div className="w-12 sm:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 sm:mt-4 rounded-full" />
+    </div>
 
-          {/* Table */}
-          <div className="border border-gray-200 rounded-lg overflow-hidden text-sm sm:text-base">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+    {/* Table */}
+    <div className="border border-gray-200 rounded-lg overflow-hidden text-sm sm:text-base shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2">
 
-              {[
-                "8× / 10× Magnification",
-                "Superior optical performance",
-                "Stadia metric reticle (8× model)",
-                "In-built Laser Range Finder (10× model)",
-                "Built-in dioptric correction",
-                "Range marking reticle",
-                "Waterproof, fog-proof & shock-proof",
-                "Rugged rubber-coated high-quality finish",
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className={`p-4 sm:p-5 border-b ${
-                    index % 2 === 0 ? "md:border-r" : ""
-                  } ${index % 4 >= 2 ? "bg-gray-50" : ""}`}
-                >
-                  <span className="font-medium">{item}</span>
-                </div>
-              ))}
+        {[
+          "8× / 10× Magnification",
+          "Superior optical performance",
+          "Stadia metric reticle (8× model)",
+          "In-built Laser Range Finder (10× model)",
+          "Built-in dioptric correction",
+          "Range marking reticle",
+          "Waterproof, fog-proof & shock-proof",
+          "Rugged rubber-coated high-quality finish",
+        ].map((item, index, arr) => {
+          const isLastRow =
+            index >= arr.length - (arr.length % 2 === 0 ? 2 : 1);
 
+          return (
+            <div
+              key={index}
+              className={`
+                p-4 sm:p-5
+                ${!isLastRow ? "border-b" : ""}
+                ${index % 2 === 0 ? "md:border-r" : ""}
+                ${index % 4 >= 2 ? "bg-gray-50" : ""}
+                border-gray-200
+                break-words
+              `}
+            >
+              <span className="font-medium">{item}</span>
             </div>
-          </div>
+          );
+        })}
 
-        </div>
-      </section>
+      </div>
+    </div>
+
+  </div>
+</section>
+
     </>
   );
 }

@@ -47,58 +47,64 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[70vh] sm:min-h-[80vh] md:h-[90vh] overflow-hidden">
+   <section className="relative w-full h-[65vh] sm:h-[80vh] md:h-[90vh] overflow-hidden">
 
-      {/* Background Image */}
-      <Image
-        src={slides[active].image}
-        alt="Hero"
-        fill
-        priority
-        className="object-cover"
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <Image
+      src={slides[active].image}
+      alt="Hero"
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover"
+    />
+  </div>
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-primaryBlue/70" />
+
+  {/* CONTENT */}
+  <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-4 sm:px-6">
+    <div
+      className="
+        bg-black/40 backdrop-blur-md
+        p-5 sm:p-6 md:p-8
+        max-w-full sm:max-w-lg
+        text-white rounded-lg
+      "
+    >
+      <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 sm:mb-4">
+        {slides[active].title}
+      </h1>
+
+      <div className="w-12 sm:w-16 h-[2px] bg-white mb-3 sm:mb-4" />
+
+      <p className="text-xs sm:text-sm md:text-base mb-4 sm:mb-6 text-gray-200">
+        {slides[active].desc}
+      </p>
+
+      <button className="bg-white text-black px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-md font-semibold hover:bg-[var(--primary-blue)] hover:text-white transition">
+        {slides[active].btn}
+      </button>
+    </div>
+  </div>
+
+  {/* SLIDER DOTS */}
+  <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
+    {slides.map((_, i) => (
+      <button
+        key={i}
+        onClick={() => setActive(i)}
+        className={`h-1 rounded-full transition-all ${
+          active === i
+            ? "w-8 sm:w-10 bg-primaryBlue"
+            : "w-6 sm:w-8 bg-white/60"
+        }`}
       />
+    ))}
+  </div>
+</section>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-primaryBlue" />
-
-      {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-4 sm:px-6">
-        <div className="
-          bg-black/40 backdrop-blur-md
-          p-5 sm:p-6 md:p-8
-          max-w-full sm:max-w-lg
-          text-white rounded-lg
-        ">
-          <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 sm:mb-4">
-            {slides[active].title}
-          </h1>
-
-          <div className="w-12 sm:w-16 h-[2px] bg-white mb-3 sm:mb-4" />
-
-          <p className="text-xs sm:text-sm md:text-base mb-4 sm:mb-6 text-gray-200">
-            {slides[active].desc}
-          </p>
-
-          <button className="bg-white text-black px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-md font-semibold hover:bg-[var(--primary-blue)] hover:text-white transition">
-            {slides[active].btn}
-          </button>
-        </div>
-      </div>
-
-      {/* SLIDER DOTS */}
-      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            className={`h-1 rounded-full transition-all ${
-              active === i
-                ? "w-8 sm:w-10 bg-primaryBlue"
-                : "w-6 sm:w-8 bg-white/60"
-            }`}
-          />
-        ))}
-      </div>
-    </section>
   );
 }

@@ -24,56 +24,57 @@ export default function DayNightSightPage() {
       <ProductFloatingCarousel />
 
       {/* ================= PRODUCT DETAILS ================= */}
-      <section className="w-full bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+     <section className="w-full bg-white py-12 md:py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
-          {/* LEFT : IMAGE SLIDER */}
-          <div>
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
-              loop
-            >
-              {images.map((src, index) => (
-                <SwiperSlide key={index}>
-                  <div className="flex justify-center">
-                    <Image
-                      src={src}
-                      alt="Day Night Sight"
-                      width={650}
-                      height={420}
-                      className="object-contain"
-                      priority={index === 0}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+    {/* LEFT : IMAGE SLIDER */}
+    <div className="w-full">
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        loop
+      >
+        {images.map((src, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[420px]">
+              <Image
+                src={src}
+                alt="Day Night Sight"
+                fill
+                className="object-contain"
+                priority={index === 0}
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
 
-          {/* RIGHT : CONTENT */}
-          <div>
-            <h1 className="text-4xl font-extrabold text-[var(--primary-blue)] mb-4">
-              Day Night Sight
-            </h1>
+    {/* RIGHT : CONTENT */}
+    <div>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--primary-blue)] mb-4">
+        Day Night Sight
+      </h1>
 
-            <div className="w-20 h-1 bg-primaryBlue mb-6" />
+      <div className="w-16 sm:w-20 h-1 bg-primaryBlue mb-6" />
 
-            <p className="text-gray-700 text-lg leading-relaxed">
-              A universal Day Night Weapon Sight with dual parallel optical
-              channels, equipped with <strong>Gen 3 GaAs IIT technology</strong>{" "}
-              along with <strong>Brightness Source Protection (BSP)</strong> and{" "}
-              <strong>Automatic Brightness Control (ABC)</strong>.
-              <br /><br />
-              The sight is compatible with a wide range of small arms including
-              AK-47, AK-103, INSAS rifles, INSAS LMG, carbines, and other similar
-              weapon platforms, offering enhanced flexibility for varied
-              tactical requirements.
-            </p>
-          </div>
-        </div>
-      </section>
+      <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+        A universal Day Night Weapon Sight with dual parallel optical
+        channels, equipped with <strong>Gen 3 GaAs IIT technology</strong>{" "}
+        along with <strong>Brightness Source Protection (BSP)</strong> and{" "}
+        <strong>Automatic Brightness Control (ABC)</strong>.
+        <br /><br />
+        The sight is compatible with a wide range of small arms including
+        AK-47, AK-103, INSAS rifles, INSAS LMG, carbines, and other similar
+        weapon platforms, offering enhanced flexibility for varied
+        tactical requirements.
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
       {/* ================= TECHNICAL PARAMETERS ================= */}
      <section className="w-full bg-white py-20">

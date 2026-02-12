@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const navRef = useRef<HTMLUListElement | null>(null);
 
-  // desktop outside click
+  // Desktop outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -22,57 +22,56 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // helper → mobile dropdown toggle (only one open)
+  // Lock scroll when mobile open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "auto";
+  }, [mobileOpen]);
+
   const toggleMobileDropdown = (name: string) => {
-    setMobileDropdown(prev => (prev === name ? null : name));
+    setMobileDropdown((prev) => (prev === name ? null : name));
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
-      {/* TOP BAR */}
+    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+
+      {/* Top Bar */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-[64px] flex items-center justify-between">
 
-        {/* LOGO */}
+        {/* Logo */}
         <Link href="/" className="flex items-center">
-          <div className="h-[44px] flex items-center">
-            <Image
-              src="/logo/ae-logo.png"
-              alt="AE Logo"
-              width={160}
-              height={160}
-              className="h-full w-auto object-contain"
-              priority
-            />
-          </div>
+          <Image
+            src="/logo/ae-logo.png"
+            alt="AE Logo"
+            width={150}
+            height={40}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
 
-        {/* MOBILE BUTTON */}
+        {/* Mobile Button */}
         <button
-          type="button"
-          className="md:hidden text-2xl text-indigo-900"
+          className="md:hidden text-3xl text-indigo-900"
           onClick={() => {
-            setMobileOpen(!mobileOpen);
-            setMobileDropdown(null); // reset dropdowns
+            setMobileOpen(true);
+            setMobileDropdown(null);
           }}
         >
           ☰
         </button>
 
-        {/* DESKTOP MENU */}
+        {/* Desktop Menu */}
         <ul
           ref={navRef}
-          className="hidden md:flex items-center gap-7 text-indigo-900 font-medium text-sm"
+          className="hidden md:flex items-center gap-8 text-indigo-900 font-medium text-sm"
         >
           <li><Link href="/">Home</Link></li>
 
-          {/* Company */}
           <li className="relative">
             <button
-              type="button"
               onClick={() =>
                 setOpenMenu(openMenu === "company" ? null : "company")
               }
-              className="hover:text-indigo-700"
             >
               Company
             </button>
@@ -85,14 +84,11 @@ export default function Navbar() {
             )}
           </li>
 
-          {/* Products */}
           <li className="relative">
             <button
-              type="button"
               onClick={() =>
                 setOpenMenu(openMenu === "products" ? null : "products")
               }
-              className="hover:text-indigo-700"
             >
               Products
             </button>
@@ -112,125 +108,116 @@ export default function Navbar() {
         </ul>
       </div>
 
-    
-
-
-      {/* MOBILE MENU */}
-{mobileOpen && (
-  <div
-    className="md:hidden bg-white border-t shadow
-               px-4 py-4 text-sm
-               max-h-[calc(100vh-64px)] overflow-y-auto"
-  >
-    {/* Home */}
-    <Link
-      href="/"
-      className="block py-2 border-b"
-      onClick={() => setMobileOpen(false)}
-    >
-      Home
-    </Link>
-
-    {/* Company */}
-    <button
-      type="button"
-      className="w-full flex justify-between items-center py-2 font-medium"
-      onClick={() => toggleMobileDropdown("company")}
-    >
-      Company <span>{mobileDropdown === "company" ? "−" : "+"}</span>
-    </button>
-
-    {mobileDropdown === "company" && (
-      <div className="ml-4 mt-2 space-y-2">
-        <Link
-          href="/about/company/about-us"
-          className="block py-1"
+      {/* MOBILE POPUP DRAWER */}
+      <>
+        {/* Overlay */}
+        <div
+          className={`fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300
+          ${mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"}
+          md:hidden`}
           onClick={() => setMobileOpen(false)}
+        />
+
+        {/* Drawer */}
+        <div
+          className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-2xl 
+          transform transition-transform duration-300 ease-in-out
+          ${mobileOpen ? "translate-x-0" : "translate-x-full"}
+          md:hidden`}
         >
-          About Us
-        </Link>
-        <Link
-          href="/company/events"
-          className="block py-1"
-          onClick={() => setMobileOpen(false)}
-        >
-          Events
-        </Link>
-      </div>
-    )}
+          {/* Header */}
+          <div className="flex justify-between items-center p-5 border-b">
+            <h2 className="text-lg font-semibold text-indigo-900">
+              Menu
+            </h2>
+            <button
+              className="text-2xl"
+              onClick={() => setMobileOpen(false)}
+            >
+              ✕
+            </button>
+          </div>
 
-    {/* Products */}
-    <button
-      type="button"
-      className="w-full flex justify-between items-center py-2 font-medium"
-      onClick={() => toggleMobileDropdown("products")}
-    >
-      Products <span>{mobileDropdown === "products" ? "−" : "+"}</span>
-    </button>
+          {/* Menu Items */}
+          <div className="p-5 space-y-4 text-base">
 
-    {mobileDropdown === "products" && (
-      <div className="ml-4 mt-2 space-y-2">
-        <Link
-          href="/products"
-          className="block py-1"
-          onClick={() => setMobileOpen(false)}
-        >
-          Night Vision Device
-        </Link>
-        <Link
-          href="/products/thermal"
-          className="block py-1"
-          onClick={() => setMobileOpen(false)}
-        >
-          Thermal Device
-        </Link>
-        <Link
-          href="/products/others"
-          className="block py-1"
-          onClick={() => setMobileOpen(false)}
-        >
-          Others
-        </Link>
-      </div>
-    )}
+            <Link
+              href="/"
+              className="block py-2 border-b"
+              onClick={() => setMobileOpen(false)}
+            >
+              Home
+            </Link>
 
-    {/* Testing Lab */}
-    <Link
-      href="/testing-lab"
-      className="block py-2 border-t"
-      onClick={() => setMobileOpen(false)}
-    >
-      Testing Lab
-    </Link>
+            {/* Company */}
+            <button
+              className="w-full flex justify-between py-2 border-b"
+              onClick={() => toggleMobileDropdown("company")}
+            >
+              Company
+              <span>{mobileDropdown === "company" ? "−" : "+"}</span>
+            </button>
 
-    {/* Careers */}
-    <Link
-      href="/careers"
-      className="block py-2"
-      onClick={() => setMobileOpen(false)}
-    >
-      Careers
-    </Link>
+            {mobileDropdown === "company" && (
+              <div className="ml-4 space-y-2 text-gray-600">
+                <Link href="/about/company/about-us" className="block" onClick={() => setMobileOpen(false)}>About Us</Link>
+                <Link href="/company/events" className="block" onClick={() => setMobileOpen(false)}>Events</Link>
+              </div>
+            )}
 
-    {/* Contact Us */}
-    <Link
-      href="/contact-us"
-      className="block py-2"
-      onClick={() => setMobileOpen(false)}
-    >
-      Contact Us
-    </Link>
-  </div>
-)}
+            {/* Products */}
+            <button
+              className="w-full flex justify-between py-2 border-b"
+              onClick={() => toggleMobileDropdown("products")}
+            >
+              Products
+              <span>{mobileDropdown === "products" ? "−" : "+"}</span>
+            </button>
 
+            {mobileDropdown === "products" && (
+              <div className="ml-4 space-y-2 text-gray-600">
+                <Link href="/products" className="block" onClick={() => setMobileOpen(false)}>Night Vision Device</Link>
+                <Link href="/products/thermal" className="block" onClick={() => setMobileOpen(false)}>Thermal Device</Link>
+                <Link href="/products/others" className="block" onClick={() => setMobileOpen(false)}>Others</Link>
+              </div>
+            )}
+
+            {/* FIXED LINKS (NOW SEPARATE LINES) */}
+            <Link
+              href="/testing-lab"
+              className="block py-2 border-b"
+              onClick={() => setMobileOpen(false)}
+            >
+              Testing Lab
+            </Link>
+
+            <Link
+              href="/careers"
+              className="block py-2 border-b"
+              onClick={() => setMobileOpen(false)}
+            >
+              Careers
+            </Link>
+
+            <Link
+              href="/contact-us"
+              className="block py-2"
+              onClick={() => setMobileOpen(false)}
+            >
+              Contact Us
+            </Link>
+
+          </div>
+        </div>
+      </>
     </nav>
   );
 }
 
-/* DROPDOWN (DESKTOP) */
+/* Desktop Dropdown */
 function Dropdown({ children }: { children: React.ReactNode }) {
   return (
-    <div className="absolute top-full mt-2 left-0 w-60 bg-white shadow-lg border rounded-md">
+    <div className="absolute top-full mt-2 left-0 w-56 bg-white shadow-xl border rounded-md py-2">
       {children}
     </div>
   );

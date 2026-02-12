@@ -85,52 +85,57 @@ export default function DualSensorPtzCameraPage() {
       </section>
 
       {/* ================= TECHNICAL PARAMETERS ================= */}
-    <section className="w-full bg-white py-12 sm:py-16 md:py-20">
-  <div className="max-w-7xl mx-auto px-4">
+   <section className="w-full bg-white py-8 sm:py-16 md:py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
     {/* Heading */}
-    <div className="text-center mb-10 sm:mb-12">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
+    <div className="text-center mb-8 sm:mb-12">
+      <h2 className="text-lg sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)] leading-snug">
         Technical Parameters
       </h2>
-      <div className="w-16 sm:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 sm:mt-4" />
+      <div className="w-12 sm:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 sm:mt-4 rounded-full" />
     </div>
 
     {/* Table */}
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm text-sm sm:text-base">
       <div className="grid grid-cols-1 md:grid-cols-2">
 
-        {/* Row 1 */}
-        <div className="p-4 sm:p-5 border-b md:border-r text-black">
-          <span className="font-medium">Pixel pitch: 17µm</span>
-        </div>
-        <div className="p-4 sm:p-5 border-b text-black">
-          <span className="font-medium">NETD ≤ 50mK.</span>
-        </div>
+        {[
+          "Pixel pitch: 17µm",
+          "NETD ≤ 50mK.",
+          "Optical Zoom",
+          "Display resolution: 1024×768.",
+          "Communication: RS485.",
+          "Composite Video Type: PAL/NTSC.",
+          "Power Interface:-30VDC via 110-240VAC power interface control box.",
+        ].map((item, index, arr) => {
+          const isLastRow =
+            index >= arr.length - (arr.length % 2 === 0 ? 2 : 1);
 
-        {/* Row 2 */}
-        <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50 text-black">
-          <span className="font-medium">Optical Zoom</span>
-        </div>
-        <div className="p-4 sm:p-5 border-b bg-gray-50 text-black">
-          <span className="font-medium">Display resolution: 1024×768.</span> 
-        </div>
-          {/* Row 3 */}
-        <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50 text-black">
-          <span className="font-medium">Communication: RS485.</span>
-        </div>
-        <div className="p-4 sm:p-5 border-b bg-gray-50">
-          <span className="font-medium">Composite Video Type: PAL/NTSC.</span> 
-        </div>
-          <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50">
-          <span className="font-medium">Power Interface:-30VDC via 110-240VAC power interface control box.</span>
-        </div>
+          return (
+            <div
+              key={index}
+              className={`
+                p-4 sm:p-5
+                ${!isLastRow ? "border-b" : ""}
+                ${index % 2 === 0 ? "md:border-r" : ""}
+                ${index % 4 >= 2 ? "bg-gray-50" : ""}
+                border-gray-200
+                break-words
+                text-black
+              `}
+            >
+              <span className="font-medium">{item}</span>
+            </div>
+          );
+        })}
 
       </div>
     </div>
 
   </div>
 </section>
+
     </>
   );
 }

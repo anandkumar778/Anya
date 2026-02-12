@@ -63,11 +63,11 @@ export default function Footer() {
           {/* FORM */}
           <div className="flex-1">
             <h2 className="text-2xl font-semibold mb-6">
-              Protect What Matters Most with Our<br />
-              Top-of-the-Line Equipment
+              Protect What Matters Most with Advanced, <br />
+              Mission-Ready Equipment
             </h2>
 
-            <h3 className="text-lg font-semibold mb-3">Get In Touch</h3>
+            <h3 className="text-lg font-semibold mb-3">Connect With Our Experts Today</h3>
 
             <form
               onSubmit={handleSubmit}
@@ -166,7 +166,7 @@ export default function Footer() {
             <FooterColumn title="Accessories" items={["Accessories", "Others"]} />
 
             <div className="col-span-2 md:col-span-3">
-              <h4 className="text-gray-200 font-semibold mb-3">Registered with</h4>
+              <h4 className="text-gray-200 font-semibold mb-3">Registered</h4>
               <div className="flex gap-3">
                 {["make", "gem", "msme", "india"].map((img) => (
                   <div key={img} className="bg-white p-2 rounded">

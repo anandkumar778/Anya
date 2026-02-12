@@ -77,55 +77,57 @@ export default function NightVisionGogglePage() {
       </div>
     </section>
 
-      <section className="w-full bg-white py-20">
-      <div className="max-w-7xl mx-auto px-4">
+      <section className="w-full bg-white py-12 md:py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
-            Technical Parameters
-          </h2>
-          <div className="w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-4" />
+    {/* Heading */}
+    <div className="text-center mb-8 md:mb-12">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
+        Technical Parameters
+      </h2>
+      <div className="w-16 md:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 md:mt-4" />
+    </div>
+
+    {/* Table */}
+    <div className="border border-gray-200 rounded-md overflow-hidden shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-sm sm:text-base">
+
+        {/* Row 1 */}
+        <div className="p-4 sm:p-5 border-b md:border-r border-gray-200">
+          Gen 2+ II tube / Gen 3 II tube. (Optional)
+        </div>
+        <div className="p-4 sm:p-5 border-b border-gray-200">
+          Automatic Gain Control (AGC).
         </div>
 
-        {/* Table */}
-        <div className="border border-gray-200 rounded-md overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-
-            {/* Row 1 */}
-            <div className="p-5 border-b border-r border-gray-200">
-              Gen 2+ II tube / Gen 3 II tube. (Optional)
-            </div>
-            <div className="p-5 border-b border-gray-200">
-              Automatic Gain Control (AGC).
-            </div>
-
-            {/* Row 2 */}
-            <div className="p-5 border-b border-r border-gray-200 bg-gray-50">
-              Brightness Source Protection (BSP).
-            </div>
-            <div className="p-5 border-b border-gray-200 bg-gray-50">
-              Integrated IR laser.
-            </div>
-
-            {/* Row 3 */}
-            <div className="p-5 border-b border-r border-gray-200">
-              Available with Head Mount and Helmet Mount (Optional).
-            </div>
-            <div className="p-5 border-b border-gray-200">
-              Low Battery Indicator.
-            </div>
-
-            {/* Row 4 */}
-            <div className="p-5 border-r border-gray-200 bg-gray-50">
-              IP 66/67 Encapsulation.
-            </div>
-            <div className="p-5 bg-gray-50" />
-          </div>
+        {/* Row 2 */}
+        <div className="p-4 sm:p-5 border-b md:border-r border-gray-200 bg-gray-50">
+          Brightness Source Protection (BSP).
         </div>
+        <div className="p-4 sm:p-5 border-b border-gray-200 bg-gray-50">
+          Integrated IR laser.
+        </div>
+
+        {/* Row 3 */}
+        <div className="p-4 sm:p-5 border-b md:border-r border-gray-200">
+          Available with Head Mount and Helmet Mount (Optional).
+        </div>
+        <div className="p-4 sm:p-5 border-b border-gray-200">
+          Low Battery Indicator.
+        </div>
+
+        {/* Row 4 */}
+        <div className="p-4 sm:p-5 md:border-r border-gray-200 bg-gray-50">
+          IP 66/67 Encapsulation.
+        </div>
+        <div className="p-4 sm:p-5 bg-gray-50"></div>
 
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
+
     </>
   );
 }

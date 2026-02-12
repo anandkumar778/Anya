@@ -88,52 +88,57 @@ export default function PicatinnyRailsPage() {
       </section>
 
       {/* ================= TECHNICAL PARAMETERS ================= */}
-    <section className="w-full bg-white py-12 sm:py-16 md:py-20">
-  <div className="max-w-7xl mx-auto px-4">
+   <section className="w-full bg-white py-8 sm:py-16 md:py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
     {/* Heading */}
-    <div className="text-center mb-10 sm:mb-12">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
+    <div className="text-center mb-8 sm:mb-12">
+      <h2 className="text-lg sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)] leading-snug">
         Technical Parameters
       </h2>
-      <div className="w-16 sm:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 sm:mt-4" />
+      <div className="w-12 sm:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 sm:mt-4 rounded-full" />
     </div>
 
     {/* Table */}
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm text-sm sm:text-base">
       <div className="grid grid-cols-1 md:grid-cols-2">
 
-        {/* Row 1 */}
-        <div className="p-4 sm:p-5 border-b md:border-r">
-          <span className="font-medium">Extremely secure platform for holographic sights, reflex sights and lasers attachment</span>
-        </div>
-        <div className="p-4 sm:p-5 border-b">
-          <span className="font-medium">Manually adjustable retention mechanism to always retain sighting zero</span>
-        </div>
+        {[
+          "Extremely secure platform for holographic sights, reflex sights and lasers attachment",
+          "Manually adjustable retention mechanism to always retain sighting zero",
+          "Quick and easy installation. No gunsmith required",
+          "Material of construction: Aluminum alloy 6061",
+          "Durable, hardwearing and light weight construction",
+          "Matt black hard coat anodized",
+          "MIL-STD-1913 based Picatinny rail",
+        ].map((item, index, arr) => {
+          const isLastRow =
+            index >= arr.length - (arr.length % 2 === 0 ? 2 : 1);
 
-        {/* Row 2 */}
-        <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50">
-          <span className="font-medium">Quick and easy installation. No gunsmith required</span>
-        </div>
-        <div className="p-4 sm:p-5 border-b bg-gray-50">
-          <span className="font-medium">Material of construction: Aluminum alloy 6061</span> 
-        </div>
-          {/* Row 3 */}
-        <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50">
-          <span className="font-medium">Durable, hardwearing and light weight construction</span>
-        </div>
-        <div className="p-4 sm:p-5 border-b bg-gray-50">
-          <span className="font-medium">Matt black hard coat anodized</span> 
-        </div>
-          <div className="p-4 sm:p-5 border-b md:border-r bg-gray-50">
-          <span className="font-medium">MIL-STD-1913 based Picatinny rail</span>
-        </div>
+          return (
+            <div
+              key={index}
+              className={`
+                p-4 sm:p-5
+                ${!isLastRow ? "border-b" : ""}
+                ${index % 2 === 0 ? "md:border-r" : ""}
+                ${index % 4 >= 2 ? "bg-gray-50" : ""}
+                border-gray-200
+                break-words
+              `}
+            >
+              <span className="font-medium">{item}</span>
+            </div>
+          );
+        })}
 
       </div>
     </div>
 
   </div>
 </section>
+
+
     </>
   );
 }
