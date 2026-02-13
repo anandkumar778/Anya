@@ -57,7 +57,7 @@ export default function ThermalMonocularPage() {
 
             <div className="w-20 h-1 bg-[var(--primary-blue)] mb-6" />
 
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
             The DarVi Thermal Monocular is engineered with a high-performance
              VOx thermal detector and a high-resolution display,
               delivering sharp, detailed thermal imagery for reliable detection and identification.
@@ -89,7 +89,7 @@ export default function ThermalMonocularPage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-gray-700">
 
         {/* Row 1 */}
         <div className="p-4 sm:p-5 border-b md:border-r">

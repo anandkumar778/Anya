@@ -23,7 +23,7 @@ export default function NightVisionGogglePage() {
     <>
      <ProductFloatingCarousel/>
     <section className="w-full bg-white py-20">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-2xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT : Image Carousel */}
         <div>
@@ -59,7 +59,7 @@ export default function NightVisionGogglePage() {
 
           <div className="w-20 h-1 bg-[var(--primary-blue)] mb-6" />
 
-          <p className="text-gray-700 text-lg leading-relaxed">
+          <p className="text-gray-700 text-xl leading-relaxed">
             DarVi Night Vision Goggle is ruggedly designed binocular night vision
             goggle system which features military grade{" "}
             <strong>Gen 2+/Gen 3 IIT tube</strong> with{" "}
@@ -78,11 +78,11 @@ export default function NightVisionGogglePage() {
     </section>
 
       <section className="w-full bg-white py-12 md:py-20">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+  <div className="max-w-xl mx-auto px-4 sm:px-6">
 
     {/* Heading */}
     <div className="text-center mb-8 md:mb-12">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
+      <h2 className="text-3xl sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)]">
         Technical Parameters
       </h2>
       <div className="w-16 md:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 md:mt-4" />
@@ -90,10 +90,10 @@ export default function NightVisionGogglePage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-md overflow-hidden shadow-sm">
-      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold sm:text-base">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold sm:text-base text-gray-700">
 
         {/* Row 1 */}
-        <div className="p-4 sm:p-5 border-b md:border-r border-gray-200">
+        <div className="p-4 sm:p-5 border-b md:border-r border-gray-200 ">
           Gen 2+ II tube / Gen 3 II tube. (Optional)
         </div>
         <div className="p-4 sm:p-5 border-b border-gray-200">

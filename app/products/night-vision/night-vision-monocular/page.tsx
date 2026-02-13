@@ -60,7 +60,7 @@ export default function NightVisionMonocularPage() {
 
             <div className="w-20 h-1 bg-primaryBlue mb-6" />
 
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
               A rugged and lightweight Night Vision Monocular featuring
                <strong>Gen 2+/Gen 3 IIT technology</strong> with{" "}
               <strong>Automatic Gain Control (AGC)</strong> and{" "}
@@ -90,7 +90,7 @@ export default function NightVisionMonocularPage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-md overflow-hidden shadow-sm">
-      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold sm:text-base">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-xl sm:text-base text-gray-700">
 
         {/* Row 1 */}
         <div className="p-4 sm:p-5 border-b md:border-r border-gray-200">

@@ -133,10 +133,10 @@ export default function ElectricPowerFencePage() {
       </section>
 
       {/* ================= TECHNICAL PARAMETERS ================= */}
-    <section className="w-full bg-white py-12">
-  <div className="max-w-7xl mx-auto px-4">
+    <section className="w-full bg-white py-12 text-gray-800 ">
+  <div className="max-w-7xl mx-auto px-4 text-gray-800 ">
 
-    <div className="overflow-x-auto bg-white rounded-lg shadow">
+    <div className="overflow-x-auto bg-white rounded-lg shadow text-gray-800 ">
       <table className="w-full border-collapse text-sm md:text-base">
 
         {/* ================= DETERRRENT ================= */}

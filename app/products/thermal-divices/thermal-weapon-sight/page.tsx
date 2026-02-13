@@ -57,7 +57,7 @@ export default function ThermalWeaponSightPage() {
 
             <div className="w-20 h-1 bg-[var(--primary-blue)] mb-6" />
 
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
             Compact, lightweight thermal weapon sight with 12µm uncooled TI sensor and OLED display,
              offering shutter-less operation for extended mission endurance. 
              Ideal for INSAS, AK-47, LMGs, and defence-grade day/night surveillance and reconnaissance.
@@ -85,7 +85,7 @@ export default function ThermalWeaponSightPage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-gray-700">
 
         {/* Row 1 */}
         <div className="p-4 sm:p-5 border-b md:border-r">

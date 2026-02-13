@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -81,10 +82,10 @@ export default function Navbar() {
             </button>
 
             {openMenu === "company" && (
-              <Dropdown>
+              
                 <DropdownLink href="/about/company/about-us" text="About Us" />
-                <DropdownLink href="/company/events" text="Events" />
-              </Dropdown>
+                
+              
             )}
           </li>
 
@@ -99,11 +100,10 @@ export default function Navbar() {
             </button>
 
             {openMenu === "products" && (
-              <Dropdown>
+             
                 <DropdownLink href="/products" text="Night Vision Device" />
-                <DropdownLink href="/products/thermal" text="Thermal Device" />
-                <DropdownLink href="/products/others" text="Others" />
-              </Dropdown>
+    
+             
             )}
           </li>
 
@@ -147,10 +147,10 @@ export default function Navbar() {
               Menu
             </h2>
             <button
-              className="text-2xl font-bold"
+              className="text-2xl font-bold text-indigo-900"
               onClick={() => setMobileOpen(false)}
             >
-              ✕
+              <AiOutlineCloseCircle/>
             </button>
           </div>
 
@@ -175,7 +175,7 @@ export default function Navbar() {
             {mobileDropdown === "company" && (
               <div className="ml-4 space-y-2 text-gray-900 font-medium">
                 <Link href="/about/company/about-us" className="block" onClick={() => setMobileOpen(false)}>About Us</Link>
-                <Link href="/company/events" className="block" onClick={() => setMobileOpen(false)}>Events</Link>
+                {/* <Link href="/company/events" className="block" onClick={() => setMobileOpen(false)}>Events</Link> */}
               </div>
             )}
 
@@ -190,8 +190,8 @@ export default function Navbar() {
             {mobileDropdown === "products" && (
               <div className="ml-4 space-y-2 text-gray-900 font-medium">
                 <Link href="/products" className="block" onClick={() => setMobileOpen(false)}>Night Vision Device</Link>
-                <Link href="/products/thermal" className="block" onClick={() => setMobileOpen(false)}>Thermal Device</Link>
-                <Link href="/products/others" className="block" onClick={() => setMobileOpen(false)}>Others</Link>
+                {/* <Link href="/products/thermal" className="block" onClick={() => setMobileOpen(false)}>Thermal Device</Link>
+                <Link href="/products/others" className="block" onClick={() => setMobileOpen(false)}>Others</Link> */}
               </div>
             )}
 

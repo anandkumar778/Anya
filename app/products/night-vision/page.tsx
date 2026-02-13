@@ -56,7 +56,7 @@ export default function NightVisionBinocularPage() {
           </h1>
 
           {/* Orange underline */}
-          <div className="w-20 h-1 bg-[var(--primary-blue)] mb-6" />
+          <div className="w-16 md:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-4 rounded-full" />
 
           <p className="text-gray-700 text-lg leading-relaxed">
             Night Vision Binocular with <strong>4X/5X lens</strong> is ruggedly

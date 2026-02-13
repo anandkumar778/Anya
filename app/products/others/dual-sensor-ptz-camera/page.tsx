@@ -98,7 +98,7 @@ export default function DualSensorPtzCameraPage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm text-sm sm:text-base">
-      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-gray-700 font-semibold">
 
         {[
           "Pixel pitch: 17µm",
@@ -122,7 +122,7 @@ export default function DualSensorPtzCameraPage() {
                 ${index % 4 >= 2 ? "bg-gray-50" : ""}
                 border-gray-200
                 break-words
-                text-black
+                
               `}
             >
               <span className="font-medium">{item}</span>

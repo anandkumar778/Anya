@@ -108,8 +108,8 @@ export default function HeadHelmetGearsPage() {
     </div>
 
     {/* Table */}
-    <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm text-sm sm:text-base">
-      <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold">
+    <div className="border border-gray-500 rounded-lg overflow-hidden shadow-sm text-sm sm:text-base text-gray-700">
+      <div className="grid grid-cols-1 md:grid-cols-2   font-semibold">
 
         {[
           "Extremely secure shroud for Night Vision Devices",
@@ -130,7 +130,7 @@ export default function HeadHelmetGearsPage() {
                 ${!isLastRow ? "border-b" : ""}
                 ${index % 2 === 0 ? "md:border-r" : ""}
                 ${index % 4 >= 2 ? "bg-gray-50" : ""}
-                border-gray-200
+                border-gray-500
                 break-words
               `}
             >

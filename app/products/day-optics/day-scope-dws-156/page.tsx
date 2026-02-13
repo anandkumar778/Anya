@@ -75,8 +75,8 @@ export default function DarViDWSDayPage() {
       </section>
 
       {/* ================= TECHNICAL PARAMETERS ================= */}
-<section className="w-full bg-white py-10 sm:py-16 md:py-20">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+<section className="w-full bg-white py-10 sm:py-16 md:py-20 text-gray-700">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 text-gray-700">
 
     {/* Heading */}
     <div className="text-center mb-8 sm:mb-12">
@@ -88,7 +88,7 @@ export default function DarViDWSDayPage() {
 
     {/* Table */}
     <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-      <div className="grid grid-cols-1 md:grid-cols-2 sm:text-base text-xl font-semibold">
+      <div className="grid grid-cols-1 md:grid-cols-2 sm:text-base font-semibold text-gray-700">
 
         {/* Row 1 */}
         <div className="p-4 sm:p-5 border-b md:border-r border-gray-200">

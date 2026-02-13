@@ -57,7 +57,7 @@ export default function ThermalFusionMonocularPage() {
 
             <div className="w-20 h-1 bg-[var(--primary-blue)] mb-6" />
 
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
              The Thermal Fusion Monocular is an advanced multi-sensor
               imaging device that seamlessly integrates thermal imaging with 
               visible-light fusion technology, delivering superior situational 
@@ -89,7 +89,7 @@ export default function ThermalFusionMonocularPage() {
           </div>
 
           <div className="border border-gray-200 rounded-md overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2 text-xl font-semibold">
+            <div className="grid grid-cols-1 md:grid-cols-2 text-gray-700">
 
               <div className="p-5 border-b border-r">
                 Pixel Pitch: 12µm
