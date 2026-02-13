@@ -16,7 +16,7 @@ export default function TechnicalParameters() {
         {/* Table Container */}
         <div className="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 sm:text-base test-gray-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 sm:text-base text-gray-700">
 
             {/* Row 1 */}
             <div className="px-4 sm:px-6 py-4 border-b md:border-r border-gray-200 bg-gray-50">

@@ -18,6 +18,7 @@ const accessories = [
 
 export default function AccessoriesPage() {
   return (
+    <>
     <section className="w-full bg-white py-14">
       {/* Heading */}
       <div className="max-w-7xl mx-auto px-4 mb-10">
@@ -53,5 +54,7 @@ export default function AccessoriesPage() {
         ))}
       </div>
     </section>
+</>
+
   );
 }

@@ -91,7 +91,7 @@ export default function PicatinnyRailsPage() {
    <section className="w-full bg-white py-8 sm:py-16 md:py-20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-    {/* Heading */}
+
     <div className="text-center mb-8 sm:mb-12">
       <h2 className="text-lg sm:text-3xl md:text-4xl font-semibold text-[var(--primary-blue)] leading-snug">
         Technical Parameters
@@ -99,7 +99,7 @@ export default function PicatinnyRailsPage() {
       <div className="w-12 sm:w-20 h-1 bg-[var(--primary-blue)] mx-auto mt-3 sm:mt-4 rounded-full" />
     </div>
 
-    {/* Table */}
+   
     <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm text-sm sm:text-base">
       <div className="grid grid-cols-1 md:grid-cols-2 text-gray-700 font-semibold">
 
