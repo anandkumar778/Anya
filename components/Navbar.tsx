@@ -65,7 +65,7 @@ export default function Navbar() {
         >
 
           <li>
-            <Link href="/" className="hover:text-indigo-600">
+            <Link href="/" className="hover:text-indigo-900">
               Home
             </Link>
           </li>
@@ -108,19 +108,19 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link href="/testing-lab" className="hover:text-indigo-600">
+            <Link href="/testing-lab" className="hover:text-indigo-900">
               Testing Lab
             </Link>
           </li>
 
           <li>
-            <Link href="/careers" className="hover:text-indigo-600">
+            <Link href="/careers" className="hover:text-indigo-900">
               Careers
             </Link>
           </li>
 
           <li>
-            <Link href="/contact-us" className="hover:text-indigo-600">
+            <Link href="/contact-us" className="hover:text-indigo-900">
               Contact Us
             </Link>
           </li>
@@ -154,7 +154,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          <div className="p-5 space-y-4 text-base font-bold">
+          <div className="p-5 space-y-4 text-base font-bold text-indigo-900">
 
             <Link
               href="/"
@@ -173,7 +173,7 @@ export default function Navbar() {
             </button>
 
             {mobileDropdown === "company" && (
-              <div className="ml-4 space-y-2 text-gray-600 font-medium">
+              <div className="ml-4 space-y-2 text-gray-900 font-medium">
                 <Link href="/about/company/about-us" className="block" onClick={() => setMobileOpen(false)}>About Us</Link>
                 <Link href="/company/events" className="block" onClick={() => setMobileOpen(false)}>Events</Link>
               </div>
@@ -188,7 +188,7 @@ export default function Navbar() {
             </button>
 
             {mobileDropdown === "products" && (
-              <div className="ml-4 space-y-2 text-gray-600 font-medium">
+              <div className="ml-4 space-y-2 text-gray-900 font-medium">
                 <Link href="/products" className="block" onClick={() => setMobileOpen(false)}>Night Vision Device</Link>
                 <Link href="/products/thermal" className="block" onClick={() => setMobileOpen(false)}>Thermal Device</Link>
                 <Link href="/products/others" className="block" onClick={() => setMobileOpen(false)}>Others</Link>
