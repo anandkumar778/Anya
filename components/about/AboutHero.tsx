@@ -60,15 +60,6 @@ export default function AboutUsPage() {
               />
             ))}
           </div>
-
-          <div className="absolute bottom-0 w-full bg-gray-100">
-            <div className="flex justify-between items-center px-4 md:px-10 py-3 text-sm">
-              <Link href="/about">← Back</Link>
-              <span className="text-[var(--primary-blue)] font-semibold">
-                Home › About Us
-              </span>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -32,8 +32,6 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-
-      {/* Top Bar */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-[64px] flex items-center justify-between">
 
         {/* Logo */}
@@ -64,16 +62,13 @@ export default function Navbar() {
           ref={navRef}
           className="hidden md:flex items-center gap-8 text-indigo-900 font-bold text-sm"
         >
-
           <li>
-            <Link href="/" className="hover:text-indigo-900">
-              Home
-            </Link>
+            <Link href="/">Home</Link>
           </li>
 
+          {/* Company */}
           <li className="relative">
             <button
-              className="font-bold"
               onClick={() =>
                 setOpenMenu(openMenu === "company" ? null : "company")
               }
@@ -82,16 +77,19 @@ export default function Navbar() {
             </button>
 
             {openMenu === "company" && (
-              
-                <DropdownLink href="/about/company/about-us" text="About Us" />
-                
-              
+              <Dropdown>
+                <DropdownLink
+                  href="/about/company/about-us"
+                  text="About Us"
+                  onClick={() => setOpenMenu(null)}
+                />
+              </Dropdown>
             )}
           </li>
 
+          {/* Products */}
           <li className="relative">
             <button
-              className="font-bold"
               onClick={() =>
                 setOpenMenu(openMenu === "products" ? null : "products")
               }
@@ -100,29 +98,26 @@ export default function Navbar() {
             </button>
 
             {openMenu === "products" && (
-             
-                <DropdownLink href="/products" text="Night Vision Device" />
-    
-             
+              <Dropdown>
+                <DropdownLink
+                  href="/products"
+                  text="Night Vision Device"
+                  onClick={() => setOpenMenu(null)}
+                />
+              </Dropdown>
             )}
           </li>
 
           <li>
-            <Link href="/testing-lab" className="hover:text-indigo-900">
-              Testing Lab
-            </Link>
+            <Link href="/testing-lab">Testing Lab</Link>
           </li>
 
           <li>
-            <Link href="/careers" className="hover:text-indigo-900">
-              Careers
-            </Link>
+            <Link href="/careers">Careers</Link>
           </li>
 
           <li>
-            <Link href="/contact-us" className="hover:text-indigo-900">
-              Contact Us
-            </Link>
+            <Link href="/contact-us">Contact Us</Link>
           </li>
         </ul>
       </div>
@@ -143,14 +138,12 @@ export default function Navbar() {
           md:hidden`}
         >
           <div className="flex justify-between items-center p-5 border-b">
-            <h2 className="text-lg font-bold text-indigo-900">
-              Menu
-            </h2>
+            <h2 className="text-lg font-bold text-indigo-900">Menu</h2>
             <button
               className="text-2xl font-bold text-indigo-900"
               onClick={() => setMobileOpen(false)}
             >
-              <AiOutlineCloseCircle/>
+              <AiOutlineCloseCircle />
             </button>
           </div>
 
@@ -174,8 +167,12 @@ export default function Navbar() {
 
             {mobileDropdown === "company" && (
               <div className="ml-4 space-y-2 text-gray-900 font-medium">
-                <Link href="/about/company/about-us" className="block" onClick={() => setMobileOpen(false)}>About Us</Link>
-                {/* <Link href="/company/events" className="block" onClick={() => setMobileOpen(false)}>Events</Link> */}
+                <Link
+                  href="/about/company/about-us"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  About Us
+                </Link>
               </div>
             )}
 
@@ -189,9 +186,12 @@ export default function Navbar() {
 
             {mobileDropdown === "products" && (
               <div className="ml-4 space-y-2 text-gray-900 font-medium">
-                <Link href="/products" className="block" onClick={() => setMobileOpen(false)}>Night Vision Device</Link>
-                {/* <Link href="/products/thermal" className="block" onClick={() => setMobileOpen(false)}>Thermal Device</Link>
-                <Link href="/products/others" className="block" onClick={() => setMobileOpen(false)}>Others</Link> */}
+                <Link
+                  href="/products"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Night Vision Device
+                </Link>
               </div>
             )}
 
@@ -235,9 +235,22 @@ function Dropdown({ children }: { children: React.ReactNode }) {
   );
 }
 
-function DropdownLink({ href, text }: { href: string; text: string }) {
+/* ✅ FIXED DropdownLink */
+function DropdownLink({
+  href,
+  text,
+  onClick,
+}: {
+  href: string;
+  text: string;
+  onClick?: () => void;
+}) {
   return (
-    <Link href={href} className="block px-4 py-2 hover:bg-gray-100 font-medium">
+    <Link
+      href={href}
+      onClick={onClick}
+      className="block px-4 py-2 hover:bg-gray-100 font-medium"
+    >
       {text}
     </Link>
   );
